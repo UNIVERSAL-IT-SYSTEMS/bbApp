@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4DE25CF3-03C8-41EA-84EF-405B0D6B1F31</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Kabbalah</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0FB59167390C6E8EAEBB4FDC161407D40CAA20C7</key>
+		<string>github.com:gabemdev/KabbalahApp.git</string>
+		<key>DACDF69B05850A1FCE6E3CE1FB50DF8A67F5EB49</key>
+		<string>https://github.com/sonnyparlin/PullToRefresh.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Kabbalah.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0FB59167390C6E8EAEBB4FDC161407D40CAA20C7</key>
+		<string>../..</string>
+		<key>DACDF69B05850A1FCE6E3CE1FB50DF8A67F5EB49</key>
+		<string>../..Resources/PullToRefresh</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:gabemdev/KabbalahApp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0FB59167390C6E8EAEBB4FDC161407D40CAA20C7</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0FB59167390C6E8EAEBB4FDC161407D40CAA20C7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BneiB</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DACDF69B05850A1FCE6E3CE1FB50DF8A67F5EB49</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PullToRefresh</string>
+		</dict>
+	</array>
+</dict>
+</plist>

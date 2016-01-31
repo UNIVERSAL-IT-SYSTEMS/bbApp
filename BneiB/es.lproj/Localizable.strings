@@ -1,0 +1,125 @@
+/* 
+  Localizable.strings
+  Kabbalah
+
+  Created by Rockstar. on 1/16/13.
+  Copyright (c) 2013 Bnei Baruch USA. All rights reserved.
+*/
+
+"RSS" = "http://feeds2.feedburner.com/Laitmanes";
+"NSDATE" = "E, d LLL yyyy HH:mm:ss Z";
+"LIBRARY_LINK" = "http://www.kabbalah.info/es/biblioteca/biblioteca-de-cabal%C3%A1";
+"BOOKSTORE" = "http://www.kabbalahbooks.info/mobile/default.aspx#C26";
+"REGISTER" = "http://www.cabalacentroestudios.com/register-free";
+"NEW_HOME" = "https://www.kabbalah.info/donate/es/projects/new_building";
+"TWITTER" = "Twitter";
+"EMAIL" = "Correo Electronico";
+"FACEBOOK" = "Facebook";
+"SAFARI" = "Abrir en Safari";
+"SEND_TWEET" = "Checa: %@ via @KabbalahApp";
+"POST_FB" = "Checa: %@. \nVia Kabbalah App";
+"HUD_TEXT" = "Cargando Nuevos Articulos";
+"FUNDAMENTALS" = "Fundamentos de Kabbalah";
+"INTERMEDIATE" = "Kabbalah Intermedio";
+"GRADUATE" = "Programa de Graduados";
+"FUNDAMENTALS_SCHEDULE" = "Miercoles a las 4pm ET y los Domingos a las 2pm ET";
+"INTERMEDIATE_SCHEDULE" = "Miercoles a las 4pm ET y los Domingos a las 2pm ET";
+"GRADUATE_SCHEDULE" = "Martes a las 8pm EDT";
+"PROMO" = "PromoSpa";
+"SCHEDULE" = "http://kab.tv/tvlist_gen.php?lang=Spanish";
+"CATALOG_F" = "http://m.kab.tv/ios/CatalogoF.html";
+"OVERVIEW_F" = "http://m.kab.tv/ios/overviewFS.html";
+"SERVICES" = "http://m.kab.tv/ios/servicesS.html";
+"CATALOG_I" = "http://m.kab.tv/ios/CatalogIS.html";
+"OVERVIEW_I" = "http://m.kab.tv/ios/overviewIS.html";
+"CATALOG_G" = "http://m.kab.tv/ios/CatalogGS.html";
+"OVERVIEW_G" = "http://m.kab.tv/ios/overviewGS.html";
+"SCHEDULE_NEW" = "http://m.kab.tv/ios/ScheduleEs.html";
+
+//iPad
+
+"BOOKS_IPAD" = "http://www.kabbalahbooks.info/kabbalah-books-spanish-s/26.htm";
+"DONATE" = "Donar";
+
+//KAB TV
+"ENGLISH" = "   INGLES";
+"HEBREW" =  " HEBREO";
+"RUSSIAN" = "     RUSO";
+"SPANISH" = "  ESPAÑOL";
+"SCHEDULE" = " HORARIO";
+"ENGLISH_IPAD" = "INGLES";
+"HEBREW_IPAD" = "HEBREO";
+"RUSSIAN_IPAD" = "RUSO";
+"SPANISH_IPAD" = "ESPAÑOL";
+"SCHEDULE_IPAD" = "HORARIO";
+"LIVE_FEED" = "Video solo disponible durante leccion en vivo.";
+"HEB_FEED" = "Canal 66 disponible las 24 horas del dia.";
+"RUS_FEED" = "Video disponible 24 horas del dia.";
+"SCHED_INFO" = "Horario de Kab TV";
+
+//ARCHIVE
+"ARCHIVE" = "Archivo";
+"MEDIA" = "MEDIA";
+"MEDIA_TITLE" = "Archivo de Medios";
+"LIBRARY" = "BIBLIOTECA";
+"LIBRARY_TITLE" = "Biblioteca";
+"BOOKS" = "LIBROS";
+"BOOKS_TITLE" = "Libros";
+"SELF-STUDY" = "AUTO-ESTUDIO";
+"MEDIA_INFO" = "Archivo Media Kabbalah - Lecciones gratis de Kabbalah, Descarga de Video y Audio.";
+"LIBRARY_INFO" = "La Sabiduría de la Cabalá - Bnei Baruj La Academia Internacional de la Cabalá| kab.info";
+"BOOKS_INFO" = "Libros de Kabblah en Español.";
+"SELF-STUDY_INFO" = "Existe una pregunta detrás de cada interrogante que surge en nuestras vidas... y esto es lo que la Cabalá responde.";
+"SELF_TITLE" = "Auto-Estudio";
+
+//EC
+"REGISTER_I" = "REGISTRO";
+"REGISTER_TITLE" = "Registro";
+"REGISTER_INFO" = "Necesitarán registrarse para recibir acceso a los cursos del Centro de Estudios.";
+"COURSES" = "CURSOS";
+"COURSES_TITLE" = "Cursos";
+"COURSES_INFO" = "Programa del Centro de Estudios";
+"EVENTS" = "EVENTOS";
+"EVENTS_TITLE" = "Eventos";
+"EVENTS_INFO" = "Kabbalah TV - Eventos";
+"EVENTS_WEB" = "http://m.kab.tv/ios/eventsSpa.html";
+"EVENTS_SHARE_STRING" = "Mantente al tanto con nuestros eventos y promociones, via @Kabbalah App";
+"NEWS" = "NOTICIAS";
+"DONATIONS" = "DONACIONES";
+"DONATIONS_INFO" = "Ayuda a compartir la Cabalá con el mundo.";
+"DONATIONS_TITLE" = "Donaciones";
+
+//DONACIONES
+"GENERAL" = "DONACIÓN GENERAL";
+"MAASER" = "PAGAR MAASER";
+"CONVENTION" = "DONACIÓN CONGRESO";
+"DONATE_SHARE" = "Donar";
+"MAASER_SHARE" = "Maaser";
+
+"GENERAL_TITLE" = "Donación General";
+"MAASER_TITLE" = "Pagar Maaser";
+"CONVENTION_TITLE" = "Donación Congreso";
+
+"GENERAL_SUBTITLE" = "Quisieras donar para un programa o projecto en especifico?";
+"MAASER_SUBTITLE" = "Para hacer un pago de Maaser.";
+"CONVENTION_SUBTITLE" = "Quisieras ayudar a otros a que atiendan un congreso?";
+
+"GENERAL_WEB" = "http://m.kab.tv/ios/donateSpa.html";
+"MAASER_WEB" = "http://m.kab.tv/ios/donateSpa.html";
+"CONVENTION_WEB" = "http://m.kab.tv/ios/donateSpa.html";
+
+"DONATE_LINK" = "http://www.cabalacentroestudios.com/donations";
+
+"CATALOG" = "CATALOGO";
+"CATALOG_TITLE_F" = "Catálogo de Cursos Fundamentos";
+"CATALOG_TITLE_I" = "Catálogo de Cursos Intermedios";
+"CATALOG_TITLE_G" = "Catálogo de Cursos Avanzados";
+"OVERVIEW_TITLE_F" = "Curso Panorama Fundamentos";
+"OVERVIEW_TITLE_I" = "Curso Panorama Intermedios";
+"OVERVIEW_TITLE_G" = "Curso Panorama Avanzados";
+"SERVICES_TITLE" = "Servicios Estudiantiles";
+"OVERVIEW" = "PANORAMA";
+"SERVICES" = "SERVICIOS";
+"SERVICES_WEB" = "http://m.kab.tv/ios/servicesS.html";
+
+

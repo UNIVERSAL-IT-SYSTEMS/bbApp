@@ -1,0 +1,166 @@
+/* 
+  Localizable.strings
+  Kabbalah
+
+  Created by Rockstar. on 1/16/13.
+  Copyright (c) 2013 Bnei Baruch USA. All rights reserved.
+*/
+
+"RSS" = "http://feeds2.feedburner.com/MichaelLaitman";
+"NSDATE" = "E, d LLL yyyy HH:mm:ss zzz";
+"LIBRARY_LINK" = "http://www.kabbalah.info/eng/content/view/frame/2373?/eng/&main";
+"BOOKSTORE" = "http://www.kabbalahbooks.info/mobile/default.aspx#Home";
+"REGISTER" = "http://edu.kabbalah.info/register-free";
+"NEW_HOME" = "https://www.kabbalah.info/donate/en/projects/new_building";
+"TWITTER" = "Twitter";
+"EMAIL" = "Email";
+"FACEBOOK" = "Facebook";
+"SAFARI" = "Open in Safari";
+"SEND_TWEET" = "Check out: %@ via @KabbalahApp";
+"POST_FB" = "Check out: %@. \nVia Kabbalah App";
+"HUD_TEXT" = "Loading New Articles";
+"FUNDAMENTALS" = "Fundamentals of Kabbalah";
+"INTERMEDIATE" = "Intermediate Kabbalah";
+"GRADUATE" = "Graduate Program";
+"FUNDAMENTALS_SCHEDULE" = "Wednesdays at 4pm ET and on Sundays at 2pm ET";
+"INTERMEDIATE_SCHEDULE" = "Wednesdays at 4pm ET and on Sundays at 2pm ET";
+"GRADUATE_SCHEDULE" = "Tuesdays at 8pm EDT";
+"PROMO" = "Promo";
+"SCHEDULE" = "http://kab.tv/tvlist_gen.php?lang=English";
+"CATALOG_F" = "http://m.kab.tv/ios/CatalogF.html";
+"OVERVIEW_F" = "http://m.kab.tv/ios/overviewF.html";
+"SERVICES" = "http://m.kab.tv/ios/services.html";
+"CATALOG_I" = "http://m.kab.tv/ios/CatalogI.html";
+"OVERVIEW_I" = "http://m.kab.tv/ios/overviewI.html";
+"CATALOG_G" = "http://m.kab.tv/ios/CatalogG.html";
+"OVERVIEW_G" = "http://m.kab.tv/ios/overviewG.html";
+"SCHEDULE_NEW" = "http://m.kab.tv/ios/Schedule.html";
+
+///iPAd
+
+"BOOKS_IPAD" = "http://www.kabbalahbooks.info";
+"DONATE" = "Donate";
+//KAB TV
+"ENGLISH" = "  ENGLISH";
+"HEBREW" = "  HEBREW";
+"RUSSIAN" = "  RUSSIAN";
+"SPANISH" = "  SPANISH";
+"SCHEDULE" = " SCHEDULE";
+"ENGLISH_IPAD" = "ENGLISH";
+"HEBREW_IPAD" = "HEBREW";
+"RUSSIAN_IPAD" = "RUSSIAN";
+"SPANISH_IPAD" = "SPANISH";
+"SCHEDULE_IPAD" = "SCHEDULE";
+"LIVE_FEED" = "Live feed only available during lesson.";
+"HEB_FEED" = "24-7 Feed for Channel 66";
+"RUS_FEED" = "24-7 Feed";
+"SCHED_INFO" = "Kab TV Schedule";
+
+//ARCHIVE
+"ARCHIVE" = "Archive";
+"MEDIA" = "MEDIA";
+"MEDIA_TITLE" = "Media Archive";
+"LIBRARY" = "LIBRARY";
+"LIBRARY_TITLE" = "Library";
+"BOOKS" = "BOOKSTORE";
+"BOOKS_TITLE" = "Books";
+"SELF-STUDY" = "SELF-STUDY";
+"MEDIA_INFO" = "Kabbalah Media Archive - Free Kababalah Lessons, Sources, Video and Audio Downloads.";
+"LIBRARY_INFO" = "Kabbalah Library - Bnei Baruch Kabbalah Education & Research Institute.";
+"BOOKS_INFO" = "Kabbalah - The Kabbalah Books of Zohar, Kabbalah for Beginners, Music, DVDs.";
+"SELF-STUDY_INFO" = "Lessons given by Bnei Baruch senior lecturer, Anthony Kosinec.";
+"SELF_TITLE" = "Self-Study";
+
+//EC
+"REGISTER_I" = "REGISTER";
+"REGISTER_TITLE" = "Registration";
+"REGISTER_INFO" = "Course Registration - Kabbalah Education Center";
+"COURSES" = "COURSES";
+"COURSES_TITLE" = "Courses";
+"COURSES_INFO" = "Study Program - Kabbalah Education Center";
+"EVENTS" = "EVENTS";
+"EVENTS_TITLE" = "Events";
+"EVENTS_INFO" = "Kabbalah TV Live Stream - Events";
+"EVENTS_WEB" = "http://m.kab.tv/ios/events.html";
+"EVENTS_SHARE_STRING" = "Keep up to date with our events and promotions, via @Kabbalah App";
+"NEWS" = "NEWS";
+"DONATIONS" = "DONATIONS";
+"DONATIONS_INFO" = "Donations - Kabbalah Education Center";
+"DONATIONS_TITLE" = "Donations";
+
+//DONATIONS
+"GENERAL" = "GENERAL";
+"MAASER" = "MAASER";
+"CONVENTION" = "CONVENTION";
+"DONATE_SHARE" = "Donate";
+"MAASER_SHARE" = "Maaser";
+
+"GENERAL_TITLE" = "General Donation";
+"MAASER_TITLE" = "Maaser Donation";
+"CONVENTION_TITLE" = "Convention Donation";
+
+"GENERAL_SUBTITLE" = "Would you like to donate for a specific programe or project?";
+"MAASER_SUBTITLE" = "To make a Maaser payment.";
+"CONVENTION_SUBTITLE" = "Would you like to help others to come to a convention?";
+
+"GENERAL_WEB" = "http://m.kab.tv/ios/generaldonate.html";
+"MAASER_WEB" = "http://m.kab.tv/ios/maaserdonate.html";
+"CONVENTION_WEB" = "http://m.kab.tv/ios/conventiondonate.html";
+
+"DONATE_LINK" = "http://edu.kabbalah.info/donations";
+
+"CATALOG" = "CATALOG";
+"CATALOG_TITLE_F" = "Fundamentals Course Catalog";
+"CATALOG_TITLE_I" = "Intermediate Course Catalog";
+"CATALOG_TITLE_G" = "Graduate Course Catalog";
+"OVERVIEW_TITLE_F" = "Fundamentals Course Overview";
+"OVERVIEW_TITLE_I" = "Intermediate Course Overview";
+"OVERVIEW_TITLE_G" = "Graduate Course Overview";
+"SERVICES_TITLE" = "Student Services";
+"OVERVIEW" = "OVERVIEW";
+"SERVICES" = "SERVICES";
+"SERVICES_WEB" = "http://m.kab.tv/ios/services.html";
+
+//BOOKS//
+//Books Title
+"kfs" = "Kabbalah For The Student";
+"shamati" = "Shamati";
+"rabash" = "Rabash--The Social Writings";
+"gems" = "Gems of Wisdom";
+"attaining" = "Attaining the Worlds Beyond";
+"unlocking" = "Unlocking the Zohar";
+"letThere" = "Let There be Light";
+"wisdom" = "Wondrous Wisdom";
+"zohar" = "The Zohar";
+"kabbalah" = "Kabbalah, Science and the Meaning of Life";
+"kabbalist" = "The Kabbalist";
+"bail" = "Bail Yourself Out";
+"benefits" = "Benefits of the New Economy";
+"guide" = "A Guide to the New World";
+"psycology" = "The Psychology of the Integral Society";
+"interest" = "Self-Interest vs. Altruism in the Global Era";
+"children" = "Children of Tomorrow";
+
+
+//Book pdf
+"kfs_pdf" = "http://m.kab.tv/ios/pdf/eng_o_ml-sefer-kabbalah-for-the-student.pdf";
+"shamati_pdf" = "http://m.kab.tv/ios/pdf/eng_o_ml-sefer-shamati.pdf";
+"rabash_pdf" = "http://m.kab.tv/ios/pdf/eng_t_rb-sefer-the-writings-of-rabash.pdf";
+"gems_pdf" = "http://m.kab.tv/ios/pdf/eng_t_norav_book_gems-of-wisdom.pdf";
+"attaining_pdf" = "http://m.kab.tv/ios/pdf/eng_o_ml-sefer-attaining-the-worlds-beyond.pdf";
+"unlocking_pdf" = "http://m.kab.tv/ios/pdf/eng_book_unlocking-the-zoha_mlaitman_web.pdf";
+"letThere_pdf" = "http://m.kab.tv/ios/pdf/eng_book_let-there-be-light.pdf";
+"wisdom_pdf" = "http://m.kab.tv/ios/pdf/eng_o_mk-sefer-wondrous-wisdom.pdf";
+"zohar_pdf" = "http://m.kab.tv/ios/pdf/eng_t_ml-sefer-zohar.pdf";
+"zohar_pdf" = "http://m.kab.tv/ios/pdf/eng_o_ml-sefer-kabbalah-science-and-the-meaning-of-life.pdf";
+"kabbalah_pdf" = "http://m.kab.tv/ios/pdf/eng_book_kabbalist_svinokur_web.pdf";
+"bail_pdf" = "http://m.kab.tv/ios/pdf/eng_t_ml-sefer-bail-yourself-out.pdf";
+"benefits_pdf" = "http://m.kab.tv/ios/pdf/eng_book_benefits-of-the-new-economy_web.pdf";
+"guide_pdf" = "http://m.kab.tv/ios/pdf/eng_book_guide-to-the-new-world_mlaitman_web.pdf";
+"psycology_pdf" = "http://m.kab.tv/ios/pdf/eng_book_psychology-integral-society_mlaitman_web.pdf";
+"interest_pdf" = "http://m.kab.tv/ios/pdf/eng_book_self-interest-vs-altruism_mlaitman_web.pdf";
+"children_pdf" = "http://m.kab.tv/ios/pdf/eng_book_children-of-tomorrow_mlaitman_web.pdf";
+
+
+
+
