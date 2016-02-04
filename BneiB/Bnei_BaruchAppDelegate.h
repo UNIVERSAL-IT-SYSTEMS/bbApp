@@ -7,9 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TestFlight.h"
-//#import <FacebookSDK/FacebookSDK.h>
-#import "LocalyticsSession.h"
 #import "LocalyticsUtilities.h"
 
 @interface Bnei_BaruchAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, UITabBarDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>

@@ -8,7 +8,7 @@
 //
 
 #import "DailyScheduleViewController.h"
-#import "KabTVShareViewController.h"
+
 
 @interface DailyScheduleViewController ()
 
@@ -34,8 +34,7 @@
 
 - (void)viewDidLoad
 {
-    [[LocalyticsSession shared] tagEvent:@"Kab TV Schedule"];
-
+    
     
     [super viewDidLoad];
     
@@ -63,10 +62,10 @@
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
     self.toolbarItems = @[_backBarButton,
-                         flexibleSpace,
-                         _reloadButton,
-                         flexibleSpace,
-                         _actionButton];
+                          flexibleSpace,
+                          _reloadButton,
+                          flexibleSpace,
+                          _actionButton];
     
     for (UIBarButtonItem *button in self.toolbarItems){
         button.imageInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
@@ -104,19 +103,19 @@
         }
         case NotReachable:
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
-            
-            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-            [alert show];
+            //            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
+            //            
+            //            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+            //            [alert show];
             break;
         }
             
     }
     
     /*NSString *fullURL = NSLocalizedString(@"SCHEDULE", nil);
-    NSURL *url = [NSURL URLWithString:fullURL];
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    [webView loadRequest:requestObj];*/
+     NSURL *url = [NSURL URLWithString:fullURL];
+     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+     [webView loadRequest:requestObj];*/
     
     /*[_webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:NSLocalizedString(@"SCHEDULE_NEW", nil) ofType:@"html" inDirectory:NO]]]];*/
     
@@ -124,20 +123,20 @@
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [_webView loadRequest:requestObj];
-
+    
     //http://kab.tv/tv/vod/ads/get_all_by_language?lang=English
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-	[super viewWillAppear:animated];
-	[self.navigationController setToolbarHidden:NO animated:animated];
+    [super viewWillAppear:animated];
+    [self.navigationController setToolbarHidden:NO animated:animated];
 }
 
 
 - (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-	[self.navigationController setToolbarHidden:YES animated:animated];
+    [super viewWillDisappear:animated];
+    [self.navigationController setToolbarHidden:YES animated:animated];
 }
 
 #pragma mark - Private
@@ -145,7 +144,7 @@
     _backBarButton.enabled = [_webView canGoBack];
     _backBarButton.tintColor = [UIColor colorWithRed:27/255.0 green:135/255.0 blue:195/255.0 alpha:1.0];
     
-	UIBarButtonItem *reloadButton = nil;
+    UIBarButtonItem *reloadButton = nil;
     if (!_webView.loading) {
         
         [activityIndicator stopAnimating];
@@ -160,10 +159,10 @@
         _actionButton.enabled = NO;
     }
     reloadButton.imageInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
-	
-	NSMutableArray *items = [self.toolbarItems mutableCopy];
-	items[2] = reloadButton;
-	self.toolbarItems = items;
+    
+    NSMutableArray *items = [self.toolbarItems mutableCopy];
+    items[2] = reloadButton;
+    self.toolbarItems = items;
 }
 
 - (void)viewDidUnload
@@ -173,20 +172,20 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-		return YES;
-	}
-	
-	return toInterfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return YES;
+    }
+    
+    return toInterfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
 }
 
 
 
 - (void) reachabilityChanged: (NSNotification* )note
 {
-	Reachability* curReach = [note object];
-	NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
-	
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
+    
     NetworkStatus netStatus = [curReach currentReachabilityStatus];
     switch (netStatus)
     {
@@ -200,10 +199,10 @@
         }
         case NotReachable:
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
-            
-            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-            [alert show];
+            //            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
+            //            
+            //            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+            //            [alert show];
             break;
         }
     }
@@ -246,20 +245,20 @@
         
     }
     else {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                  initWithTitle:@""
-                                  delegate:self
-                                  cancelButtonTitle:@"Cancel"
-                                  destructiveButtonTitle:nil
-                                  otherButtonTitles:
-                                  NSLocalizedString(@"TWITTER", nil),
-                                  NSLocalizedString(@"EMAIL", nil),
-                                  NSLocalizedString(@"FACEBOOK",nil),
-                                  NSLocalizedString(@"SAFARI",nil),
-                                  
-                                  nil];
-    
-    [actionSheet showFromTabBar:self.tabBarController.tabBar];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                      initWithTitle:@""
+                                      delegate:self
+                                      cancelButtonTitle:@"Cancel"
+                                      destructiveButtonTitle:nil
+                                      otherButtonTitles:
+                                      NSLocalizedString(@"TWITTER", nil),
+                                      NSLocalizedString(@"EMAIL", nil),
+                                      NSLocalizedString(@"FACEBOOK",nil),
+                                      NSLocalizedString(@"SAFARI",nil),
+                                      
+                                      nil];
+        
+        [actionSheet showFromTabBar:self.tabBarController.tabBar];
     }
 }
 
@@ -278,20 +277,20 @@
             [self presentViewController:tweetSheet animated:YES completion:nil];
         }
         /*
-        TWTweetComposeViewController *tweetSheet =
-        [[TWTweetComposeViewController alloc] init];
-        
-        [tweetSheet setInitialText:@"Kab.TV Schedule via @KabbalahApp"];
-        [tweetSheet addURL:[NSURL URLWithString:@"http://goo.gl/ToS3J"]];
-        
-        
-        tweetSheet.completionHandler = ^(TWTweetComposeViewControllerResult result){
-            [self dismissModalViewControllerAnimated:YES];
-        };
-        
-	    [self presentModalViewController:tweetSheet animated:YES];
-        
-        //[TestFlight passCheckpoint:@"Twitter Sent Schedule"];*/
+         TWTweetComposeViewController *tweetSheet =
+         [[TWTweetComposeViewController alloc] init];
+         
+         [tweetSheet setInitialText:@"Kab.TV Schedule via @KabbalahApp"];
+         [tweetSheet addURL:[NSURL URLWithString:@"http://goo.gl/ToS3J"]];
+         
+         
+         tweetSheet.completionHandler = ^(TWTweetComposeViewControllerResult result){
+         [self dismissModalViewControllerAnimated:YES];
+         };
+         
+         [self presentModalViewController:tweetSheet animated:YES];
+         
+         //[TestFlight passCheckpoint:@"Twitter Sent Schedule"];*/
     }
     
     if (buttonIndex == 1) {
@@ -324,14 +323,14 @@
     if (buttonIndex == 2) {
         
         /*[FBSession activeSession];
-        NSString *message = [NSString stringWithFormat:@"Kabbalah TV - Check out today's lesson schedule! \n'%@' \nVia Kabbalah App",[NSURL URLWithString:@"http://goo.gl/ToS3J"]];
-        
-        [FBRequestConnection startForPostStatusUpdate:message
-                                    completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                                        
-                                        [self showAlert:message result:result error:error];
-                                        
-                                    }];*/
+         NSString *message = [NSString stringWithFormat:@"Kabbalah TV - Check out today's lesson schedule! \n'%@' \nVia Kabbalah App",[NSURL URLWithString:@"http://goo.gl/ToS3J"]];
+         
+         [FBRequestConnection startForPostStatusUpdate:message
+         completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+         
+         [self showAlert:message result:result error:error];
+         
+         }];*/
         
         NSString *message = [NSString stringWithFormat:@"Kabbalah TV, Today's schedule. | Via Kabbalah App."];
         NSURL * url = [NSURL URLWithString:@"http://goo.gl/ToS3J"];
@@ -347,46 +346,46 @@
         }
         
         /*
-        BOOL displayedNativeDialog =
-        [FBNativeDialogs
+         BOOL displayedNativeDialog =
+         [FBNativeDialogs
          presentShareDialogModallyFrom:self
          initialText:message
          image:nil
          url:url
          handler:^(FBNativeDialogResult result, NSError *error) {
-             
-             // Only show the error if it is not due to the dialog
-             // not being supported, i.e. code = 7, otherwise ignore
-             // because our fallback will show the share view controller.
-             if (error && [error code] == 7) {
-                 return;
-             }
-             
-             NSString *alertText = @"";
-             if (error) {
-                 alertText = [NSString stringWithFormat:
-                              @"error: domain = %@, code = %d",
-                              error.domain, error.code];
-             } else if (result == FBNativeDialogResultSucceeded) {
-                 alertText = @"Posted successfully.";
-             }
-             if (![alertText isEqualToString:@""]) {
-                 // Show the result in an alert
-                 BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Result" message:alertText];
-                 
-                 [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-                 [alert show];
-             }
+         
+         // Only show the error if it is not due to the dialog
+         // not being supported, i.e. code = 7, otherwise ignore
+         // because our fallback will show the share view controller.
+         if (error && [error code] == 7) {
+         return;
+         }
+         
+         NSString *alertText = @"";
+         if (error) {
+         alertText = [NSString stringWithFormat:
+         @"error: domain = %@, code = %d",
+         error.domain, error.code];
+         } else if (result == FBNativeDialogResultSucceeded) {
+         alertText = @"Posted successfully.";
+         }
+         if (![alertText isEqualToString:@""]) {
+         // Show the result in an alert
+         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Result" message:alertText];
+         
+         [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+         [alert show];
+         }
          }];
-        
-        // Fallback, show the view controller that will post using me/feed
-        if (!displayedNativeDialog) {
-        
-        KabTVShareViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"KabTVShareView"];
-        [self presentViewController:viewController animated:YES completion:nil];
-        
-        //[TestFlight passCheckpoint:@"Facebook Schedule"];
-        }*/
+         
+         // Fallback, show the view controller that will post using me/feed
+         if (!displayedNativeDialog) {
+         
+         KabTVShareViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"KabTVShareView"];
+         [self presentViewController:viewController animated:YES completion:nil];
+         
+         //[TestFlight passCheckpoint:@"Facebook Schedule"];
+         }*/
         
     }
     
@@ -415,13 +414,13 @@
         [hud hide:YES afterDelay:2];
         
         
-	}
+    }
     
     else if (result == MFMailComposeResultFailed) {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"Unable to send email"];
-        
-        [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-        [alert show];
+        //        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"Unable to send email"];
+        //        
+        //        [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+        //        [alert show];
     }
     
 }
@@ -441,10 +440,10 @@
         alertTitle = @"Success";
     }
     
-    BlockAlertView *alert = [BlockAlertView alertWithTitle:alertTitle message:alertMsg];
-    
-    [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-    [alert show];
+    //    BlockAlertView *alert = [BlockAlertView alertWithTitle:alertTitle message:alertMsg];
+    //    
+    //    [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+    //    [alert show];
 }
 
 

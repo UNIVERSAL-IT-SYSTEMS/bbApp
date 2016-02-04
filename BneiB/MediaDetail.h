@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import <FacebookSDK/FacebookSDK.h>
 #import "MBProgressHUD.h"
 
 @interface MediaDetail : UIViewController <UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UIWebViewDelegate, MBProgressHUDDelegate>

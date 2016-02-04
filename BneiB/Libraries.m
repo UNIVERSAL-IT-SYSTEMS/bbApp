@@ -41,7 +41,6 @@
                                            userInfo:Nil
                                             repeats:YES];
     
-    [TestFlight passCheckpoint:@"EC Privacy load"];
     
     internetReach = [Reachability reachabilityForInternetConnection];
     [internetReach startNotifier];
@@ -59,10 +58,10 @@
         }
         case NotReachable:
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
-            
-            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-            [alert show];
+            //            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
+            //            
+            //            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+            //            [alert show];
             break;
         }
             
@@ -75,7 +74,7 @@
     
     ///////Local Web View///////
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"libraries" ofType:@"html" inDirectory:NO]]]];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
 }
 
 -(void)loading {
@@ -101,9 +100,9 @@
 
 - (void) reachabilityChanged: (NSNotification* )note
 {
-	Reachability* curReach = [note object];
-	NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
-	
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
+    
     NetworkStatus netStatus = [curReach currentReachabilityStatus];
     switch (netStatus)
     {
@@ -117,10 +116,10 @@
         }
         case NotReachable:
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
-            
-            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-            [alert show];
+            //            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
+            //            
+            //            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+            //            [alert show];
             break;
         }
     }
@@ -133,11 +132,10 @@
 }
 
 - (void)actionSheet: (UIActionSheet *) actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-        if (buttonIndex == 0) {
+    if (buttonIndex == 0) {
         NSURL * currentURL = [webView.request URL];
         [[UIApplication sharedApplication] openURL:currentURL];
         
-        [TestFlight passCheckpoint:@"Open in Safari. Libraries"];
     }
     
 }

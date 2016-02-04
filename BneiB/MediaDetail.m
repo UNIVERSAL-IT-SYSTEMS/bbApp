@@ -31,19 +31,18 @@
 
 
 - (instancetype)initWithItem:(NSDictionary *)theItem {
-	if (self = [super initWithNibName:@"MediaDetail" bundle:nil]) {
-		self.item = theItem;
-		self.title = item[@"title"];
-	}
-	
-	return self;
+    if (self = [super initWithNibName:@"MediaDetail" bundle:nil]) {
+        self.item = theItem;
+        self.title = item[@"title"];
+    }
+    
+    return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [[LocalyticsSession shared] tagEvent:@"Media Detail"];
     
     //UIColor* bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_tweet_place_holder~iphone.png"]];
     //[self.view setBackgroundColor:bgColor];
@@ -63,10 +62,10 @@
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
     self.toolbarItems = @[_backBarButton,
-                         flexibleSpace,
-                         _reloadButton,
-                         flexibleSpace,
-                         _actionButton];
+                          flexibleSpace,
+                          _reloadButton,
+                          flexibleSpace,
+                          _actionButton];
     
     for (UIBarButtonItem *button in self.toolbarItems){
         button.imageInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
@@ -87,7 +86,7 @@
                                            userInfo:Nil
                                             repeats:YES];
     
-	self.title = item[@"title"];
+    self.title = item[@"title"];
     _itemSummary.delegate = self;
     _itemSummary.scalesPageToFit = NO;
     
@@ -114,18 +113,18 @@
     //NSURL* url = [NSURL URLWithString:[item objectForKey:@"link"]];
     //[itemSummary loadRequest:[
     
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-	[super viewWillAppear:animated];
-	[self.navigationController setToolbarHidden:NO animated:animated];
+    [super viewWillAppear:animated];
+    [self.navigationController setToolbarHidden:NO animated:animated];
 }
 
 
 - (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-	[self.navigationController setToolbarHidden:YES animated:animated];
+    [super viewWillDisappear:animated];
+    [self.navigationController setToolbarHidden:YES animated:animated];
 }
 
 #pragma mark - Private
@@ -133,7 +132,7 @@
     _backBarButton.enabled = [_itemSummary canGoBack];
     _backBarButton.tintColor = [UIColor colorWithRed:27/255.0 green:135/255.0 blue:195/255.0 alpha:1.0];
     
-	UIBarButtonItem *reloadButton = nil;
+    UIBarButtonItem *reloadButton = nil;
     if (!_itemSummary.loading) {
         
         [activityIndicator stopAnimating];
@@ -150,17 +149,17 @@
         _actionButton.enabled = NO;
     }
     reloadButton.imageInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
-	
-	NSMutableArray *items = [self.toolbarItems mutableCopy];
-	items[2] = reloadButton;
-	self.toolbarItems = items;
+    
+    NSMutableArray *items = [self.toolbarItems mutableCopy];
+    items[2] = reloadButton;
+    self.toolbarItems = items;
 }
 
 - (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
+    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
+    
+    // Release any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidUnload
@@ -258,19 +257,19 @@
         }
         
         /*
-        TWTweetComposeViewController *tweetSheet =
-        [[TWTweetComposeViewController alloc] init];
-        
-        [tweetSheet setInitialText:message];
-        self.urlString = [item objectForKey:@"guid"];
-        [tweetSheet addURL:[NSURL URLWithString:self.urlString]];
-        
-        
-        tweetSheet.completionHandler = ^(TWTweetComposeViewControllerResult result){
-            [self dismissModalViewControllerAnimated:YES];
-        };
-        
-	    [self presentModalViewController:tweetSheet animated:YES];*/
+         TWTweetComposeViewController *tweetSheet =
+         [[TWTweetComposeViewController alloc] init];
+         
+         [tweetSheet setInitialText:message];
+         self.urlString = [item objectForKey:@"guid"];
+         [tweetSheet addURL:[NSURL URLWithString:self.urlString]];
+         
+         
+         tweetSheet.completionHandler = ^(TWTweetComposeViewControllerResult result){
+         [self dismissModalViewControllerAnimated:YES];
+         };
+         
+         [self presentModalViewController:tweetSheet animated:YES];*/
         //[TestFlight passCheckpoint:@"Twitter Archive Media"];
     }
     
@@ -338,54 +337,54 @@
         //NSURL* url = [NSURL URLWithString:[item objectForKey:@"link"]];
         
         /*
-        BOOL displayedNativeDialog =
-        [FBNativeDialogs
+         BOOL displayedNativeDialog =
+         [FBNativeDialogs
          presentShareDialogModallyFrom:self
          initialText:message
          image:nil
          url:[NSURL URLWithString:self.urlString]
          handler:^(FBNativeDialogResult result, NSError *error) {
-             
-             // Only show the error if it is not due to the dialog
-             // not being supported, i.e. code = 7, otherwise ignore
-             // because our fallback will show the share view controller.
-             if (error && [error code] == 7) {
-                 return;
-             }
-             
-             NSString *alertText = @"";
-             if (error) {
-                 alertText = [NSString stringWithFormat:
-                              @"error: domain = %@, code = %d",
-                              error.domain, error.code];
-             } else if (result == FBNativeDialogResultSucceeded) {
-                 alertText = @"Posted successfully.";
-             }
-             if (![alertText isEqualToString:@""]) {
-                 // Show the result in an alert
-                 BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Result" message:alertText];
-                 
-                 [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-                 [alert show];
-             }
+         
+         // Only show the error if it is not due to the dialog
+         // not being supported, i.e. code = 7, otherwise ignore
+         // because our fallback will show the share view controller.
+         if (error && [error code] == 7) {
+         return;
+         }
+         
+         NSString *alertText = @"";
+         if (error) {
+         alertText = [NSString stringWithFormat:
+         @"error: domain = %@, code = %d",
+         error.domain, error.code];
+         } else if (result == FBNativeDialogResultSucceeded) {
+         alertText = @"Posted successfully.";
+         }
+         if (![alertText isEqualToString:@""]) {
+         // Show the result in an alert
+         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Result" message:alertText];
+         
+         [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+         [alert show];
+         }
          }];
-        
-        // Fallback, show the view controller that will post using me/feed
-        if (!displayedNativeDialog) {
-            
-            
-            [FBSession activeSession];
-            NSString *message = [NSString stringWithFormat:@"Check out %@ \n'%@' \nVia Kabbalah App",[item objectForKey:@"title"], [item objectForKey:@"guid"]];
-            
-            [FBRequestConnection startForPostStatusUpdate:message
-                                        completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                                            
-                                            [self showAlert:message result:result error:error];
-                                            
-                                        }];
-            
-            //[TestFlight passCheckpoint:@"Facebook. Archive Media"];
-        }*/
+         
+         // Fallback, show the view controller that will post using me/feed
+         if (!displayedNativeDialog) {
+         
+         
+         [FBSession activeSession];
+         NSString *message = [NSString stringWithFormat:@"Check out %@ \n'%@' \nVia Kabbalah App",[item objectForKey:@"title"], [item objectForKey:@"guid"]];
+         
+         [FBRequestConnection startForPostStatusUpdate:message
+         completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+         
+         [self showAlert:message result:result error:error];
+         
+         }];
+         
+         //[TestFlight passCheckpoint:@"Facebook. Archive Media"];
+         }*/
     }
     
     if (buttonIndex == 3) {
@@ -411,14 +410,14 @@
         [hud show:YES];
         [hud hide:YES afterDelay:2];
         
-
-	}
+        
+    }
     
     else if (result == MFMailComposeResultFailed) {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"Unable to send email"];
-        
-        [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-        [alert show];
+        //        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"Unable to send email"];
+        //        
+        //        [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+        //        [alert show];
     }
     
 }
@@ -438,10 +437,10 @@
         alertTitle = @"Success";
     }
     
-    BlockAlertView *alert = [BlockAlertView alertWithTitle:alertTitle message:alertMsg];
-    
-    [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-    [alert show];
+    //    BlockAlertView *alert = [BlockAlertView alertWithTitle:alertTitle message:alertMsg];
+    //    
+    //    [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+    //    [alert show];
 }
 
 @end

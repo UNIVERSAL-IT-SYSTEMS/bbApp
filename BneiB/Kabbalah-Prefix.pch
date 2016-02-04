@@ -9,26 +9,18 @@
 #endif
 
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
-    #import "Appirater.h"
-    #import "Twitter/Twitter.h"
-    #import "Reachability.h"
-    #import "MessageUI/MFMailComposeViewController.h"
-    #import "TestFlight.h"
-    #import "Bnei_BaruchAppDelegate.h"
-    #import "BlockAlertView.h"
-    #import "BlockBackground.h"
-    #import "BlockUI.h"
-    #import <Parse/Parse.h>
-    #import <QuartzCore/QuartzCore.h>
-    #import <Social/Social.h>
-    #import <FacebookSDK/FacebookSDK.h>
-    #import "MBProgressHUD.h"
-    #import "BBDefines.h"
-    #import <Accounts/Accounts.h>
-    #import "LocalyticsSession.h"
-    #import "LocalyticsUtilities.h"
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "Appirater.h"
+#import "Twitter/Twitter.h"
+#import "Reachability.h"
+#import "MessageUI/MFMailComposeViewController.h"
+#import "Bnei_BaruchAppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
+#import <Social/Social.h>
+#import "MBProgressHUD.h"
+#import <Accounts/Accounts.h>
+#import "LocalyticsUtilities.h"
 
 
 #endif

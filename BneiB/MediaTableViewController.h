@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PullToRefreshView.h"
 #import "MBProgressHUD.h"
-#import "ArchiveViewController.h"
-#import <FacebookSDK/FacebookSDK.h>
+
 
 @class Reachability;
 

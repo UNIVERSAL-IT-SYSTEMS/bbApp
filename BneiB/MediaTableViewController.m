@@ -10,10 +10,8 @@
 #import "MediaParser.h"
 #import "MBProgressHUD.h"
 #import "Twitter/Twitter.h"
-#import "ArchiveShareViewController.h"
 #import "ArchiveCustomCell.h"
 #import "MediaDetail.h"
-#import "MediaIpadDetail.h"
 
 @class MBProgressHUD;
 
@@ -45,20 +43,19 @@
 
 - (void)viewDidLoad
 {
-    [[LocalyticsSession shared] tagEvent:@"Media Main"];
-
+    
     
     //HUD
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-	[self.navigationController.view addSubview:HUD];
-	
-	HUD.delegate = self;
-	HUD.labelText = @"Loading";
-	
-	[HUD showWhileExecuting:@selector(myTask) onTarget:self withObject:nil animated:YES];
+    [self.navigationController.view addSubview:HUD];
     
-	// Super
-	[super viewDidLoad];
+    HUD.delegate = self;
+    HUD.labelText = @"Loading";
+    
+    [HUD showWhileExecuting:@selector(myTask) onTarget:self withObject:nil animated:YES];
+    
+    // Super
+    [super viewDidLoad];
     
     //UIColor *bg = [UIColor colorWithRed:27/255.0 green:135/255.0 blue:195/255.0 alpha:1.0];
     //[self.view setBackgroundColor:bg];
@@ -90,35 +87,35 @@
         case NotReachable:
         {
             
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some sections require internet connection."];
-            
-            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-            [alert show];
+            //            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some sections require internet connection."];
+            //            
+            //            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+            //            [alert show];
             break;
         }
     }
     
     //UIColor* bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]];
     //[self.view setBackgroundColor:bgColor];
-
+    
     
     //[TestFlight passCheckpoint:@"Opened Archive - Media"];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
+    
 }
 
 
 
 - (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
+    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
+    
+    // Release any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -159,7 +156,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     static NSString *CellIdentifier = @"MediaCell";
     
     // Configure the cell...
@@ -168,7 +165,7 @@
     
     if (cell == nil) {
         cell = [[ArchiveCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
     }
     
@@ -180,7 +177,7 @@
     cell.medSubTitle.text = [dateFormatter stringFromDate:items[indexPath.row][@"date"]];
     
     cell.medCategory.text = items[indexPath.row][@"itunes:keywords"];
-
+    
     
     
     //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -196,19 +193,19 @@
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
         
-        MediaIpadDetail *itemDetail = [self.storyboard instantiateViewControllerWithIdentifier:@"MediaIpadDetail"];
+        MediaDetail *itemDetail = [self.storyboard instantiateViewControllerWithIdentifier:@"MediaIpadDetail"];
         itemDetail.item = items[indexPath.row];
         [self.navigationController pushViewController:itemDetail animated:YES];
     }
     
     else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
-    // Show detail
-    MediaDetail *itemDetail = [self.storyboard instantiateViewControllerWithIdentifier:@"MediaDetail"];
-    itemDetail.item = items[indexPath.row];
-    [self.navigationController pushViewController:itemDetail animated:YES];
-	}
-	// Deselect
-	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        // Show detail
+        MediaDetail *itemDetail = [self.storyboard instantiateViewControllerWithIdentifier:@"MediaDetail"];
+        itemDetail.item = items[indexPath.row];
+        [self.navigationController pushViewController:itemDetail animated:YES];
+    }
+    // Deselect
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark -
@@ -217,25 +214,25 @@
 - (void)myTask {
     
     // Back to indeterminate mode
-	HUD.mode = MBProgressHUDModeIndeterminate;
-	HUD.labelText = @"Loading ...";
-	[self.tableView reloadData];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"Loading ...";
+    [self.tableView reloadData];
     sleep(1);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-		return 92;
-	}
+        return 92;
+    }
     
     return 82;
 }
 
 - (void) reachabilityChanged: (NSNotification* )note
 {
-	Reachability* curReach = [note object];
-	NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
-	
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
+    
     NetworkStatus netStatus = [curReach currentReachabilityStatus];
     switch (netStatus)
     {
@@ -294,34 +291,34 @@
                 }
                 if (![alertText isEqualToString:@""]) {
                     // Show the result in an alert
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Result"
-                                                                   message:alertText];
-                    
-                    [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-                    [alert show];
+                    //                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Result"
+                    //                                                                   message:alertText];
+                    //                    
+                    //                    [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+                    //                    [alert show];
                 }
             };
             
             [self presentViewController:tweetSheet animated:YES completion:nil];
-        
+            
         }
         
         /*
-        TWTweetComposeViewController *tweetSheet = 
-        [[TWTweetComposeViewController alloc] init];
+         TWTweetComposeViewController *tweetSheet = 
+         [[TWTweetComposeViewController alloc] init];
+         
+         [tweetSheet setInitialText:@"Kabbalah Media Archive - Free Kabbalah Lessons, Sources, Video and Audio Downloads @KabbalahApp"];
+         [tweetSheet addURL:[NSURL URLWithString:@"http://kabbalahmedia.info/"]];
+         
+         
+         tweetSheet.completionHandler = ^(TWTweetComposeViewControllerResult result){
+         [self dismissModalViewControllerAnimated:YES];
+         };
+         
+         [self presentModalViewController:tweetSheet animated:YES];
+         
+         [TestFlight passCheckpoint:@"Twitter Media"];*/
         
-        [tweetSheet setInitialText:@"Kabbalah Media Archive - Free Kabbalah Lessons, Sources, Video and Audio Downloads @KabbalahApp"];
-        [tweetSheet addURL:[NSURL URLWithString:@"http://kabbalahmedia.info/"]];
-        
-        
-        tweetSheet.completionHandler = ^(TWTweetComposeViewControllerResult result){
-            [self dismissModalViewControllerAnimated:YES];
-        };
-        
-	    [self presentModalViewController:tweetSheet animated:YES];
-        
-        [TestFlight passCheckpoint:@"Twitter Media"];*/
-
     }
     
     if (buttonIndex == 1) {
@@ -346,7 +343,7 @@
             [self presentViewController:composer animated:YES completion:nil];
         }
         //[TestFlight passCheckpoint:@"Email Media"];
-
+        
     }
     
     if (buttonIndex == 2) {
@@ -371,60 +368,60 @@
                 }
                 if (![alertText isEqualToString:@""]) {
                     // Show the result in an alert
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Result"
-                                                                   message:alertText];
-                    
-                    [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-                    [alert show];
+                    //                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Result"
+                    //                                                                   message:alertText];
+                    //                    
+                    //                    [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+                    //                    [alert show];
                 }
             };
             
             [self presentViewController:tweetSheet animated:YES completion:nil];
-        
+            
         }
         
         
         /*
-        BOOL displayedNativeDialog =
-        [FBNativeDialogs
+         BOOL displayedNativeDialog =
+         [FBNativeDialogs
          presentShareDialogModallyFrom:self
          initialText:message
          image:nil
          url:url
          handler:^(FBNativeDialogResult result, NSError *error) {
-             
-             // Only show the error if it is not due to the dialog
-             // not being supported, i.e. code = 7, otherwise ignore
-             // because our fallback will show the share view controller.
-             if (error && [error code] == 7) {
-                 return;
-             }
-             
-             NSString *alertText = @"";
-             if (error) {
-                 alertText = [NSString stringWithFormat:
-                              @"error: domain = %@, code = %d",
-                              error.domain, error.code];
-             } else if (result == FBNativeDialogResultSucceeded) {
-                 alertText = @"Posted successfully.";
-             }
-             if (![alertText isEqualToString:@""]) {
-                 // Show the result in an alert
-                 BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Result" message:alertText];
-                 
-                 [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-                 [alert show];
-             }
+         
+         // Only show the error if it is not due to the dialog
+         // not being supported, i.e. code = 7, otherwise ignore
+         // because our fallback will show the share view controller.
+         if (error && [error code] == 7) {
+         return;
+         }
+         
+         NSString *alertText = @"";
+         if (error) {
+         alertText = [NSString stringWithFormat:
+         @"error: domain = %@, code = %d",
+         error.domain, error.code];
+         } else if (result == FBNativeDialogResultSucceeded) {
+         alertText = @"Posted successfully.";
+         }
+         if (![alertText isEqualToString:@""]) {
+         // Show the result in an alert
+         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Result" message:alertText];
+         
+         [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+         [alert show];
+         }
          }];
-        
-        // Fallback, show the view controller that will post using me/feed
-        if (!displayedNativeDialog) {
-        
-        ArchiveShareViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ArchiveShareView"];
-        [self presentViewController:viewController animated:YES completion:nil];
-        
-        [TestFlight passCheckpoint:@"Facebook. Media"];
-        }*/
+         
+         // Fallback, show the view controller that will post using me/feed
+         if (!displayedNativeDialog) {
+         
+         ArchiveShareViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ArchiveShareView"];
+         [self presentViewController:viewController animated:YES completion:nil];
+         
+         [TestFlight passCheckpoint:@"Facebook. Media"];
+         }*/
         
     }
     
@@ -432,7 +429,7 @@
         NSURL* url = [NSURL URLWithString:@"http://kabbalahmedia.info/"];
         [[UIApplication sharedApplication] openURL:url];
         //[TestFlight passCheckpoint:@"Open in Safari Media"];
-
+        
     }
 }
 
@@ -441,10 +438,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
     if (result == MFMailComposeResultFailed) {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"Unable to send email"];
-        
-        [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-        [alert show];
+        //        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"Unable to send email"];
+        //        
+        //        [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+        //        [alert show];
     }
     
 }
@@ -464,10 +461,10 @@
         alertTitle = @"Success";
     }
     
-    BlockAlertView *alert = [BlockAlertView alertWithTitle:alertTitle message:alertMsg];
-    
-    [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-    [alert show];
+    //    BlockAlertView *alert = [BlockAlertView alertWithTitle:alertTitle message:alertMsg];
+    //    
+    //    [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+    //    [alert show];
 }
 
 #pragma mark Memory management
