@@ -1,14 +1,16 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0FB59167390C6E8EAEBB4FDC161407D40CAA20C7",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9965444448FCA83F972C838DE623E232B932FFAE",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9965444448FCA83F972C838DE623E232B932FFAE" : 0,
     "0FB59167390C6E8EAEBB4FDC161407D40CAA20C7" : 0,
     "DACDF69B05850A1FCE6E3CE1FB50DF8A67F5EB49" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "4DE25CF3-03C8-41EA-84EF-405B0D6B1F31",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9965444448FCA83F972C838DE623E232B932FFAE" : "bbApp\/",
     "0FB59167390C6E8EAEBB4FDC161407D40CAA20C7" : "BneiB",
     "DACDF69B05850A1FCE6E3CE1FB50DF8A67F5EB49" : "BneiBResources\/PullToRefresh"
   },
@@ -20,6 +22,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:gabemdev\/KabbalahApp.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0FB59167390C6E8EAEBB4FDC161407D40CAA20C7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:gabemdev\/bbApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9965444448FCA83F972C838DE623E232B932FFAE"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sonnyparlin\/PullToRefresh.git",
