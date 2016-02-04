@@ -8,13 +8,6 @@
 
 #import "LocalyticsUtilities.h"
 
-void LLStartSession(NSString *key) {
-#if ANALYTICS_ENABLED
-    [[LocalyticsSession sharedLocalyticsSession] startSession:(key)];
-#endif
-}
-
-
 void LLTagEvent(NSString *name) {
 #if ANALYTICS_ENABLED
     [Localytics tagEvent:name];
