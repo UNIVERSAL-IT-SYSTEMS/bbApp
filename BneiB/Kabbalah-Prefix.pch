@@ -21,6 +21,7 @@
 #import "MBProgressHUD.h"
 #import <Accounts/Accounts.h>
 #import "LocalyticsUtilities.h"
+#import "Localytics.h"
 
 
 #endif

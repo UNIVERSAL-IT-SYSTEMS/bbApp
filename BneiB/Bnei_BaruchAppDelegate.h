@@ -11,27 +11,9 @@
 
 @interface Bnei_BaruchAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, UITabBarDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 {
-   UIBackgroundTaskIdentifier bgTask; 
+    UIBackgroundTaskIdentifier bgTask; 
 }
 
-
 @property (strong, nonatomic) UIWindow *window;
-
-//+ (Bnei_BaruchAppDelegate *)sharedAppDelegate;
-
--(void)customizeiPadTheme;
-
--(void)customizeiPhoneTheme;
-
--(void)iPadInit;
-
-
-//@property (strong, nonatomic) FBSession *session;
-
-//extern NSString *const FBSessionStateChangedNotification;
-
-//- (void) openSessionCheckCache:(BOOL)check;
-
-//- (void) closeSession;
 
 @end

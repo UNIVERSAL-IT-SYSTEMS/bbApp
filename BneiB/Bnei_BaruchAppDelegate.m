@@ -9,6 +9,7 @@
 #import "Bnei_BaruchAppDelegate.h"
 #import "Appirater.h"
 #import "LocalyticsUtilities.h"
+#import "Localytics.h"
 
 @interface Bnei_BaruchAppDelegate()
 
@@ -45,7 +46,6 @@
         [navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_bg"] forBarMetrics:UIBarMetricsDefault];
         //[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar_bg"] forBarMetrics:UIBarMetricsDefault];
         
-        [self iPadInit];
         [self _setupTabBarAppearance];
         
     }
@@ -60,17 +60,6 @@
         
         
     }
-    //[self customizeInterface];
-    
-    //    [application registerForRemoteNotificationTypes:
-    //     UIRemoteNotificationTypeBadge |
-    //     UIRemoteNotificationTypeAlert |
-    //     UIRemoteNotificationTypeSound];
-    
-    //    NSDictionary* userInfo = [launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
-    //    NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
-    //    NSInteger badge = [[apsInfo objectForKey:@"badge"] integerValue];
-    //    application.applicationIconBadgeNumber = badge;
     
     // call the Appirater class
     [Appirater setAppId:@"550938690"];
@@ -83,27 +72,9 @@
     
     
     /////////////Analytics/////////////
-//    [[LocalyticsSession shared] startSession:@"3899ffa1d6146a0cf30c70c-79a8c6ac-c8c3-11e2-0ede-004a77f8b47f"];
+    //    [[LocalyticsSession shared] startSession:@"3899ffa1d6146a0cf30c70c-79a8c6ac-c8c3-11e2-0ede-004a77f8b47f"];
+    [Localytics autoIntegrate:@"3899ffa1d6146a0cf30c70c-79a8c6ac-c8c3-11e2-0ede-004a77f8b47f" launchOptions:launchOptions];
     
-    NSDictionary *dimensions = @{
-                                 // What type of news is this?
-                                 @"category": @"politics",
-                                 // Is it a weekday or the weekend?
-                                 @"dayType": @"weekday",
-                                 };
-    
-    // Optionally enable development mode
-#ifdef BB_API_DEVELOPMENT_MODE
-    [BBHTTPClient setDevelopmentModeEnabled:NO];
-    [BBPushController setDevelopmentModeEnabled:NO];
-#endif
-    
-    // Defer some stuff to make launching faster
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        
-        
-    });
     [_window makeKeyAndVisible];
     return YES;
 }
@@ -143,20 +114,12 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
 
 
 
-/*- (void) clearNotifications {
- [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
- [[UIApplication sharedApplication] cancelAllLocalNotifications];
- }*/
-
-
 
 #pragma mark Customization
 
 - (void)_setupTabBarAppearance
 {
     
-    //[[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"bg_title_bar"]];
-    //[[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@""]];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:0.16f green:0.45f blue:0.73f alpha:1.0f]}
                                              forState:UIControlStateNormal];
     
@@ -165,7 +128,6 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
                                              forState:UIControlStateSelected];
     
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
-    //[[UITabBar appearance] setBarTintColor:[UIColor yellowColor]];
 }
 
 - (void)_setupToolBarAppearance
@@ -176,242 +138,6 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [toolbar setBackgroundImage:[UIImage imageNamed:@"toolbar-background"] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
 }
 
--(void)customizeiPhoneTheme
-{
-    /* [[UIApplication sharedApplication]
-     setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
-     
-     UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
-     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-     
-     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar-active.png"]];
-     
-     
-     UINavigationBar *navigationBar = [UINavigationBar appearance];
-     [navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_title_bar"] forBarMetrics:UIBarMetricsDefault];
-     [navigationBar setTitleVerticalPositionAdjustment:-1.0f forBarMetrics:UIBarMetricsDefault];
-     [navigationBar setTitleTextAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
-     [UIFont boldSystemFontOfSize:20.0f], UITextAttributeFont,
-     [UIColor whiteColor], UITextAttributeTextColor,
-     [UIColor colorWithWhite:0.0f alpha:0.2f], UITextAttributeTextShadowColor,
-     nil]];*/
-    
-    
-    //UIImage *navBarImageShadow = [UIImage imageNamed:@"Navbar_Shadow"];
-    //[[UINavigationBar appearance] setShadowImage:navBarImageShadow];
-    
-    
-    
-    /*UINavigationBar *navBarImage = [UINavigationBar appearance];
-     [navBarImage setBackgroundImage:[UIImage imageNamed:@"bg_title_bar.png"] forBarMetrics:UIBarMetricsDefault];
-     [navBarImage setTitleVerticalPositionAdjustment:-1.0f forBarMetrics:UIBarMetricsDefault];
-     [navBarImage setTitleTextAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
-     [UIFont fontWithName:kMyriadSetBoldItalic size: 25.0f], UITextAttributeFont,
-     [UIColor colorWithWhite:0.0f alpha:0.2f], UITextAttributeTextShadowColor,
-     [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)],
-     UITextAttributeTextShadowOffset,
-     [UIColor whiteColor], UITextAttributeTextColor, nil]];*/
-    
-    /*NSDictionary *barButtonTitleTextAttributes = [[NSDictionary alloc] initWithObjectsAndKeys:
-     [UIFont boldSystemFontOfSize:16.0f], UITextAttributeFont,
-     [UIColor colorWithWhite:0.0f alpha:0.2f],
-     UITextAttributeTextShadowColor,
-     [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)],
-     UITextAttributeTextShadowOffset, nil];
-     
-     UIBarButtonItem *barButton = [UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil];
-     
-     [barButton setTitleTextAttributes:barButtonTitleTextAttributes forState:UIControlStateNormal];
-     [barButton setTitleTextAttributes:barButtonTitleTextAttributes forState:UIControlStateHighlighted];
-     [barButton setBackgroundImage:[[UIImage imageNamed:@"menubar-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-     [barButton setBackgroundImage:[[UIImage imageNamed:@"menubar-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-     
-     //Navigation back button
-     [barButton setBackButtonTitlePositionAdjustment:UIOffsetMake(0.0f, 0.0f) forBarMetrics:UIBarMetricsDefault];
-     [barButton setBackButtonBackgroundImage:[[UIImage imageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-     [barButton setBackButtonBackgroundImage:[[UIImage imageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];*/
-    
-    
-    /*
-     UIImage *backButton = [[UIImage imageNamed:@"back.png"]
-     resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
-     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal
-     barMetrics:UIBarMetricsDefault];
-     
-     UIImage *barButton = [[UIImage imageNamed:@"menubar-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
-     
-     [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal
-     barMetrics:UIBarMetricsDefault];
-     
-     UIToolbar *toolBar = [UIToolbar appearance];
-     [toolBar setBackgroundImage:[UIImage imageNamed:@"bg_tab_bar"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];*/
-    
-    /*UIImage *toolBarImage = [UIImage imageNamed:@"bg_tab_bar.png"];
-     [[UIToolbar appearance] setBackgroundImage:toolBarImage forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];*/
-    
-}
-
-
--(void)customizeiPadTheme
-{
-    /*UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
-     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-     
-     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar-active.png"]];
-     
-     UINavigationBar *navigationBar = [UINavigationBar appearance];
-     [navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_title_bar"] forBarMetrics:UIBarMetricsDefault];
-     [navigationBar setTitleVerticalPositionAdjustment:-1.0f forBarMetrics:UIBarMetricsDefault];
-     [navigationBar setTitleTextAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
-     [UIFont boldSystemFontOfSize:20.0f], UITextAttributeFont,
-     [UIColor whiteColor], UITextAttributeTextColor,
-     [UIColor colorWithWhite:0.0f alpha:0.2f], UITextAttributeTextShadowColor,
-     nil]];
-     
-     UIImage *toolBarImage = [UIImage imageNamed:@"bg_tab_bar.png"];
-     [[UIToolbar appearance] setBackgroundImage:toolBarImage forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
-     
-     UIImage *backButton = [[UIImage imageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
-     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal
-     barMetrics:UIBarMetricsDefault];
-     
-     [[UINavigationBar appearance] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-     [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0],
-     UITextAttributeTextColor,
-     [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],
-     UITextAttributeTextShadowColor,
-     [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],
-     UITextAttributeTextShadowOffset,
-     nil]];
-     
-     
-     UIImage *barItemImage = [[UIImage imageNamed:@"ipad-menubar-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
-     [[UIBarButtonItem appearance] setBackgroundImage:barItemImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-     */ 
-}
-
-
--(void)iPadInit
-{
-    
-}
-
-#pragma mark - Facebook methods
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    
-}
-
-/*- (void) closeSession {
- [self.session closeAndClearTokenInformation];
- }*/
-
-- (void)updateFacebookToken:(NSString *)accessToken expiresAt:(NSDate *)expiresAt
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:accessToken forKey:@"FBAccessTokenKey"];
-    [defaults setObject:expiresAt forKey:@"FBExpirationDateKey"];
-    [defaults synchronize];
-}
-
-- (void)fbSessionInvalidated
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults removeObjectForKey:@"FBAccessTokenKey"];
-    [defaults removeObjectForKey:@"FBExpirationDateKey"];
-    [defaults synchronize];
-}
-
-- (void)fbDidExtendToken:(NSString*)accessToken
-               expiresAt:(NSDate*)expiresAt
-{
-    [self updateFacebookToken:accessToken expiresAt:expiresAt];
-}
-
-- (void)fbDidNotLogin:(BOOL)cancelled
-{
-    NSLog(@"User did not log in to Facebook");
-}
-
-
-- (void)fbDidLogout
-{
-    NSLog(@"User did log out from Facebook");
-}
-
-/*- (FBSession *)createNewSession
- {
- NSArray *permissions = [[NSArray alloc] initWithObjects:
- @"user_likes",
- @"read_stream",
- nil];
- self.session = [[FBSession alloc] initWithPermissions:permissions];
- return self.session;
- }
- 
- - (void)sessionStateChanged:(FBSession *)session
- state:(FBSessionState) state
- error:(NSError *)error
- {
- switch (state) {
- case FBSessionStateOpen:
- if (!error) {
- // We have a valid session
- NSLog(@"User session found");
- }
- break;
- case FBSessionStateClosed:
- case FBSessionStateClosedLoginFailed:
- [session closeAndClearTokenInformation];
- self.session = nil;
- [self createNewSession];
- break;
- default:
- break;
- }
- 
- [[NSNotificationCenter defaultCenter]
- postNotificationName:FBSessionStateChangedNotification
- object:session];
- 
- if (error) {
- UIAlertView *alertView = [[UIAlertView alloc]
- initWithTitle:@"Error"
- message:error.localizedDescription
- delegate:nil
- cancelButtonTitle:@"OK"
- otherButtonTitles:nil];
- [alertView show];
- }
- }
- 
- - (void) openSessionCheckCache:(BOOL)check {
- // Create a new session object
- if (!self.session.isOpen) {
- [self createNewSession];
- }
- // Open the session in two scenarios:
- // - When we are not loading from the cache, e.g. when a login
- //   button is clicked.
- // - When we are checking cache and have an available token,
- //   e.g. when we need to show a logged vs. logged out display.
- if (!check ||
- (self.session.state == FBSessionStateCreatedTokenLoaded)) {
- [self.session openWithCompletionHandler:
- ^(FBSession *session, FBSessionState state, NSError *error) {
- [self sessionStateChanged:session state:state error:error];
- }];
- }
- }*/
-
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-//    [[LocalyticsSession shared] close];
-//    [[LocalyticsSession shared] upload];
-}
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
@@ -452,37 +178,15 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
         });
     });
     NSLog(@"backgroundTimeRemaining: %f", [[UIApplication sharedApplication] backgroundTimeRemaining]);
-    
-//    [[LocalyticsSession sharedLocalyticsSession] close];
-//    [[LocalyticsSession sharedLocalyticsSession] upload];
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    
     [Appirater appEnteredForeground:YES];
-//    [[LocalyticsSession sharedLocalyticsSession] resume];
-//    [[LocalyticsSession sharedLocalyticsSession] upload];
-    
 }
 
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-//    [[LocalyticsSession sharedLocalyticsSession] close];
-//    [[LocalyticsSession sharedLocalyticsSession] upload];
-    
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-//    [[LocalyticsSession sharedLocalyticsSession] close];
-//    [[LocalyticsSession sharedLocalyticsSession] upload];
-    
-}
 
 
 #pragma mark - UIAlertViewDelegate methods

@@ -11,7 +11,8 @@
 #endif
 
 #if ANALYTICS_ENABLED
-#import "LocalyticsSession.h"
+#import "Localytics.h"
+
 #endif
 
 void LLStartSession(NSString *key);
