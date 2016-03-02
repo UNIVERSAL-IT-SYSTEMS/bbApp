@@ -95,8 +95,7 @@ desc "Deploys a new version to the App Store"
 
     crashlytics(
       ipa_path: "./Kabbalah.ipa",
-      notes: "Running on #{environment}",
-      groups: ['bb-test']
+      notes: "Running on #{environment}"
     )
 
     # post_to_slack(scheme: scheme, destination: "Crashlytics")
