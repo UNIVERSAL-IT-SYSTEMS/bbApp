@@ -58,7 +58,7 @@ desc "Submits a new Beta Build to Apple TestFlight"
     match(app_identifier: "com.bneibaruch.Kabbalah-AdHoc", type: "appstore")
     gym(scheme: "Kabbalah", workspace: "Kabbalah.xcworkspace", configuration: "Beta", clean: true)
     pilot(username: "gabomorales@me.com", app_identifier: "com.bneibaruch.Kabbalah-AdHoc")
-    clean_build_artifacts
+    # clean_build_artifacts
     fabric(scheme: "Testing")
   end
 
