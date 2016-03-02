@@ -26,6 +26,11 @@ Creates new screenshots and uploads them to iTunes Connect
 fastlane ios beta
 ```
 Submits a new Beta Build to Apple TestFlight
+### ios Fabric
+```
+fastlane ios Fabric
+```
+Submits a new Beta build to Fabric
 ### ios deploy
 ```
 fastlane ios deploy
