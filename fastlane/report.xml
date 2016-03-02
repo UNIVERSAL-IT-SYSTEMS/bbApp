@@ -3,39 +3,39 @@
   <testsuite name="fastlane.lanes">
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000512">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000466">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000251">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000237">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: ensure_git_status_clean" time="0.023158">
+      <testcase classname="fastlane.lanes" name="2: ensure_git_status_clean" time="0.023728">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: cocoapods" time="5.425367">
+      <testcase classname="fastlane.lanes" name="3: cocoapods" time="5.494393">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: increment_build_number" time="0.952894">
+      <testcase classname="fastlane.lanes" name="4: increment_build_number" time="0.896766">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: cocoapods" time="5.702492">
+      <testcase classname="fastlane.lanes" name="5: cocoapods" time="5.476717">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: match" time="17.501402">
+      <testcase classname="fastlane.lanes" name="6: match" time="20.961478">
         
-          <failure message="/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/actions/actions_helper.rb:33:in `execute_action'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:129:in `block in execute_action'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:128:in `chdir'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:128:in `execute_action'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/fast_file.rb:149:in `method_missing'&#10;Fastfile:58:in `block (2 levels) in parsing_binding'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/lane.rb:36:in `call'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/lane.rb:36:in `call'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:52:in `block in execute'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:46:in `chdir'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:46:in `execute'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/lane_manager.rb:46:in `cruise_lane'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/command_line_handler.rb:30:in `handle'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/bin/fastlane:38:in `block (2 levels) in run'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/commander-4.3.5/lib/commander/command.rb:178:in `call'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/commander-4.3.5/lib/commander/command.rb:178:in `call'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/commander-4.3.5/lib/commander/command.rb:153:in `run'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/commander-4.3.5/lib/commander/runner.rb:428:in `run_active_command'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane_core-0.37.0/lib/fastlane_core/ui/fastlane_runner.rb:23:in `run!'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/commander-4.3.5/lib/commander/delegates.rb:15:in `run!'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/bin/fastlane:156:in `run'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/bin/fastlane:162:in `&lt;top (required)&gt;'&#10;/Users/Gabe/.rvm/rubies/ruby-2.1.2/bin/fastlane:23:in `load'&#10;/Users/Gabe/.rvm/rubies/ruby-2.1.2/bin/fastlane:23:in `&lt;main&gt;'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `&lt;main&gt;'&#10;&#10;Couldn't find bundle identifier 'com.bneibaruch.Kabbalah AdHoc' for the user 'gabomorales@me.com'" />
+          <failure message="/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/actions/actions_helper.rb:33:in `execute_action'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:129:in `block in execute_action'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:128:in `chdir'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:128:in `execute_action'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/fast_file.rb:149:in `method_missing'&#10;Fastfile:58:in `block (2 levels) in parsing_binding'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/lane.rb:36:in `call'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/lane.rb:36:in `call'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:52:in `block in execute'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:46:in `chdir'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:46:in `execute'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/lane_manager.rb:46:in `cruise_lane'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/command_line_handler.rb:30:in `handle'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/bin/fastlane:38:in `block (2 levels) in run'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/commander-4.3.5/lib/commander/command.rb:178:in `call'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/commander-4.3.5/lib/commander/command.rb:178:in `call'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/commander-4.3.5/lib/commander/command.rb:153:in `run'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/commander-4.3.5/lib/commander/runner.rb:428:in `run_active_command'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane_core-0.37.0/lib/fastlane_core/ui/fastlane_runner.rb:23:in `run!'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/commander-4.3.5/lib/commander/delegates.rb:15:in `run!'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/bin/fastlane:156:in `run'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/bin/fastlane:162:in `&lt;top (required)&gt;'&#10;/Users/Gabe/.rvm/rubies/ruby-2.1.2/bin/fastlane:23:in `load'&#10;/Users/Gabe/.rvm/rubies/ruby-2.1.2/bin/fastlane:23:in `&lt;main&gt;'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `&lt;main&gt;'&#10;&#10;Could not create another certificate, reached the maximum number of available certificates." />
         
       </testcase>
     
