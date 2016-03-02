@@ -74,7 +74,7 @@
      [webView loadRequest:requestObj];*/
     
     ///////Local Web View///////
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"about" ofType:@"html" inDirectory:NO]]]];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"about" ofType:@"html"]]]];
     
 }
 
@@ -133,31 +133,31 @@
 
 - (void)actionSheet: (UIActionSheet *) actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
-        NSString *message = [NSString stringWithFormat:@"About Bnei Baruch. @KabbalahApp"];
-        NSString *urlString = [NSString stringWithFormat:@"http://goo.gl/Zwniu"];
-        
-        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
-        {
-            SLComposeViewController *tweetSheet = [SLComposeViewController
-                                                   composeViewControllerForServiceType:SLServiceTypeTwitter];
-            [tweetSheet setInitialText:message];
-            
-            [tweetSheet addURL:[NSURL URLWithString:urlString]];
-            [self presentViewController:tweetSheet animated:YES completion:nil];
-        }
-        /*
-         TWTweetComposeViewController *tweetSheet =
-         [[TWTweetComposeViewController alloc] init];
-         
-         [tweetSheet setInitialText:@"About Bnei Baruch. @KabbalahApp"];
-         [tweetSheet addURL:[NSURL URLWithString:@"http://goo.gl/Zwniu"]];
-         
-         
-         tweetSheet.completionHandler = ^(TWTweetComposeViewControllerResult result){
-         [self dismissModalViewControllerAnimated:YES];
-         };
-         
-         [self presentModalViewController:tweetSheet animated:YES];*/
+        //        NSString *message = [NSString stringWithFormat:@"About Bnei Baruch. @KabbalahApp"];
+        //        NSString *urlString = [NSString stringWithFormat:@"http://goo.gl/Zwniu"];
+        //        
+        //        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+        //        {
+        //            SLComposeViewController *tweetSheet = [SLComposeViewController
+        //                                                   composeViewControllerForServiceType:SLServiceTypeTwitter];
+        //            [tweetSheet setInitialText:message];
+        //            
+        //            [tweetSheet addURL:[NSURL URLWithString:urlString]];
+        //            [self presentViewController:tweetSheet animated:YES completion:nil];
+        //        }
+        //        /*
+        //         TWTweetComposeViewController *tweetSheet =
+        //         [[TWTweetComposeViewController alloc] init];
+        //         
+        //         [tweetSheet setInitialText:@"About Bnei Baruch. @KabbalahApp"];
+        //         [tweetSheet addURL:[NSURL URLWithString:@"http://goo.gl/Zwniu"]];
+        //         
+        //         
+        //         tweetSheet.completionHandler = ^(TWTweetComposeViewControllerResult result){
+        //         [self dismissModalViewControllerAnimated:YES];
+        //         };
+        //         
+        //         [self presentModalViewController:tweetSheet animated:YES];*/
         
     }
     

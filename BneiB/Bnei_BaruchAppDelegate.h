@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "LocalyticsUtilities.h"
 
-@interface Bnei_BaruchAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, UITabBarDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
+@interface Bnei_BaruchAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, UITabBarDelegate>
 {
     UIBackgroundTaskIdentifier bgTask; 
 }
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) UITabBarController *tabBarController;
+
++ (Bnei_BaruchAppDelegate *)sharedDelegate;
+
 
 @end

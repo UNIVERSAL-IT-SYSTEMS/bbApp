@@ -8,8 +8,6 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIcons~ipad</key>
-	<dict/>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -24,7 +22,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.0.0</string>
+	<string>5</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -39,46 +37,44 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>4.0.0</string>
-	<key>FacebookAppID</key>
-	<string>287621847997904</string>
+	<string>86</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UIAppFonts</key>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>UIBackgroundModes</key>
 	<array>
-		<string>MyriadPro-Regular.otf</string>
-		<string>MyriadPro-Semibold.otf</string>
-		<string>MyriadPro-SemiboldIt.otf</string>
-		<string>MyriadPro-It.otf</string>
-		<string>MyriadPro-CondIt.otf</string>
-		<string>MyriadPro-Cond.otf</string>
-		<string>MyriadPro-Bold.otf</string>
-		<string>MyriadPro-BoldCond.otf</string>
-		<string>MyriadPro-BoldCondIt.otf</string>
-		<string>MyriadPro-BoldIt.otf</string>
+		<string>audio</string>
+		<string>fetch</string>
 	</array>
-	<key>UIApplicationExitsOnSuspend</key>
-	<false/>
-	<key>UIMainStoryboardFile</key>
-	<string>iPhone</string>
-	<key>UIMainStoryboardFile~ipad</key>
-	<string>iPad</string>
+	<key>UILaunchStoryboardName</key>
+	<string>Launch Screen</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
-	<key>UIStatusBarHidden</key>
-	<false/>
-	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleLightContent</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>UIStatusBarTintParameters</key>
+	<dict>
+		<key>UINavigationBar</key>
+		<dict>
+			<key>Style</key>
+			<string>UIBarStyleDefault</string>
+			<key>Translucent</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

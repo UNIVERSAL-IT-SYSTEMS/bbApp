@@ -73,7 +73,7 @@
      [webView loadRequest:requestObj];*/
     
     ///////Local Web View///////
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"terms" ofType:@"html" inDirectory:NO]]]];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"terms" ofType:@"html"]]]];
     
     // Do any additional setup after loading the view.
 }

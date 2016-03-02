@@ -11,6 +11,7 @@ def new_pods
     pod 'Appirater_ios8', '~> 3.0'
     pod 'MBProgressHUD', '~> 0.9'
     pod 'Fabric', '~> 1.6'
+    pod 'CarbonKit', '~>2.1' 
 end
 
 def analytic_pods
