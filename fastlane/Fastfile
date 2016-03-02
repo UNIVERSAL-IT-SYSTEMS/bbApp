@@ -106,6 +106,23 @@ desc "Deploys a new version to the App Store"
     # post_to_slack(scheme: scheme, destination: "Crashlytics")
   end
 
+    private_lane :build do |options|
+    scheme = options[:scheme]
+    signingId = options[:signId]
+
+    gym(
+      scheme: "Kabbalah #{scheme}", 
+      configuration: scheme, 
+      clean: true, 
+      include_bitcode: false,
+      workspace: "Kabbalah.xcworkspace",
+      output_directory: "../",
+      output_name: "Kabbalah.ipa",
+      codesigning_identity: "#{signingId}",
+      xcargs: "ARCHIVE=YES" # Used to tell the Fabric run script to upload dSYM file
+    )
+  end
+
   after_all do |lane|
     # This block is called, only if the executed lane was successful
   end
