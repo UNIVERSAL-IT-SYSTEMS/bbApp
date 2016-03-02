@@ -46,10 +46,10 @@ desc "Fetches the provisioning profiles so you can build locally and deploy to y
 desc "Creates new screenshots and uploads them to iTunes Connect"
   lane :screens do
     cocoapods
-    match(app_identifier: "com.bneibaruch.Kabbalah-Development", type: "development")
+    match(app_identifier: "com.bneibaruch.Kabbalah", type: "development")
     snapshot
     frameit
-    deliver(app: 550938690, app_identifier: "com.bneibaruch.Kabbalah-AppStore", skip_metadata: true, force: true)
+    deliver(app: 550938690, app_identifier: "com.bneibaruch.Kabbalah", skip_metadata: true, force: true)
   end
 
 desc "Submits a new Beta Build to Apple TestFlight"
@@ -57,7 +57,7 @@ desc "Submits a new Beta Build to Apple TestFlight"
     cocoapods
     match(app_identifier: "com.bneibaruch.Kabbalah-AdHoc", type: "appstore")
     gym(scheme: "Kabbalah", workspace: "Kabbalah.xcworkspace", configuration: "Beta", clean: true)
-    pilot(username: "gabomorales@me.com", app_identifier: "com.bneibaruch.Kabbalah-AdHoc")
+    pilot(username: "gabomorales@me.com", app_identifier: "com.bneibaruch.Kabbalah")
     # clean_build_artifacts
     fabric(scheme: "Testing")
   end
