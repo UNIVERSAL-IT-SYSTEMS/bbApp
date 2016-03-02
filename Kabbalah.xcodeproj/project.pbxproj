@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		001094F91C65017000C25E9B /* BBInforBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001094F81C65017000C25E9B /* BBInforBaseViewController.m */; };
+		00640EFA1C86A7850029AD93 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00640EF91C86A7850029AD93 /* Crashlytics.framework */; };
 		00D8DC1E1C63ACD8008596CE /* Archive.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D8DC191C63ACD8008596CE /* Archive.m */; };
 		00D8DC1F1C63ACD8008596CE /* Blog.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D8DC1B1C63ACD8008596CE /* Blog.m */; };
 		00D8DC201C63ACD8008596CE /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D8DC1D1C63ACD8008596CE /* Book.m */; };
@@ -95,6 +96,7 @@
 /* Begin PBXFileReference section */
 		001094F71C65017000C25E9B /* BBInforBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBInforBaseViewController.h; sourceTree = "<group>"; };
 		001094F81C65017000C25E9B /* BBInforBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBInforBaseViewController.m; sourceTree = "<group>"; };
+		00640EF91C86A7850029AD93 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		00D8DC181C63ACD8008596CE /* Archive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Archive.h; sourceTree = "<group>"; };
 		00D8DC191C63ACD8008596CE /* Archive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Archive.m; sourceTree = "<group>"; };
 		00D8DC1A1C63ACD8008596CE /* Blog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blog.h; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				6D17287216856EBE00C46DB4 /* MobileCoreServices.framework in Frameworks */,
 				6D9FEA49166701E6002C8199 /* ImageIO.framework in Frameworks */,
 				6D4D246716142987008EC51F /* Social.framework in Frameworks */,
+				00640EFA1C86A7850029AD93 /* Crashlytics.framework in Frameworks */,
 				6D4D246616142980008EC51F /* AdSupport.framework in Frameworks */,
 				6D4D246516142977008EC51F /* Accounts.framework in Frameworks */,
 				6DEBE8091582E16100D336B5 /* MessageUI.framework in Frameworks */,
@@ -521,6 +524,7 @@
 		6D67A5DD1534154000E0F5B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00640EF91C86A7850029AD93 /* Crashlytics.framework */,
 				6D8EE6F2189CA6F0006AF2C4 /* CoreTelephony.framework */,
 				6D47051F16E595120018F6D6 /* CoreLocation.framework */,
 				6D47051D16E594F00018F6D6 /* AudioToolbox.framework */,
@@ -714,7 +718,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "./Fabric.framework/run 2b0e59ad86a3bc7aa61e7444e593e13a0c2e92ec 05391c883d210a6192135a527a696c5c7fe1b4a92c01af5f531555c286c0afba";
 		};
 		70E3EA44F6F3A45E91E9AFCF /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

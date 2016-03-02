@@ -16,6 +16,9 @@
 #import "KabTvViewController.h"
 #import "MediaCollectionViewController.h"
 #import "LoginViewController.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 
 @interface Bnei_BaruchAppDelegate() <UISplitViewControllerDelegate>
@@ -35,6 +38,8 @@
     
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _window.backgroundColor = [UIColor whiteColor];
+    
+    [Fabric with:@[[Crashlytics class]]];
     
     // call the Appirater class
     [Appirater setAppId:@"550938690"];
