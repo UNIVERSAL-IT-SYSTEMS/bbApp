@@ -62,6 +62,15 @@ desc "Submits a new Beta Build to Apple TestFlight"
     fabric(scheme: "Testing")
   end
 
+  desc "Submits a new Beta build to Fabric"
+  lane :Fabric do
+    cocoapods
+    match(app_identifier: "com.bneibaruch.Kabbalah", type: "appstore")
+    gym(scheme: "Kabbalah", workspace: "Kabbalah.xcworkspace", clean: true)
+    fabric(scheme: "Testing")
+  end
+
+
 desc "Deploys a new version to the App Store"
   lane :deploy do
     cocoapods
