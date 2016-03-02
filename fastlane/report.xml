@@ -3,64 +3,62 @@
   <testsuite name="fastlane.lanes">
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000624">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000499">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000266">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.00024">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: ensure_git_status_clean" time="0.024478">
+      <testcase classname="fastlane.lanes" name="2: ensure_git_status_clean" time="0.025267">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: cocoapods" time="7.810869">
+      <testcase classname="fastlane.lanes" name="3: cocoapods" time="6.064967">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: increment_build_number" time="1.061841">
+      <testcase classname="fastlane.lanes" name="4: increment_build_number" time="0.958575">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: match" time="15.738608">
+      <testcase classname="fastlane.lanes" name="5: match" time="17.688403">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: cocoapods" time="5.838882">
+      <testcase classname="fastlane.lanes" name="6: cocoapods" time="5.281796">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: match" time="26.942608">
+      <testcase classname="fastlane.lanes" name="7: match" time="35.4228">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="8: gym" time="26.644556">
+      <testcase classname="fastlane.lanes" name="8: gym" time="22.624391">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="9: Switch to ios fabric lane" time="0.000779">
+      <testcase classname="fastlane.lanes" name="9: Switch to ios fabric lane" time="0.000477">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="10: sigh" time="6.211471">
+      <testcase classname="fastlane.lanes" name="10: sigh" time="5.820557">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="11: crashlytics" time="22.892668">
-        
-          <failure message="/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/actions/actions_helper.rb:33:in `execute_action'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:129:in `block in execute_action'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:128:in `chdir'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:128:in `execute_action'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/fast_file.rb:149:in `method_missing'&#10;Fastfile:96:in `block (2 levels) in parsing_binding'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/lane.rb:36:in `call'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/lane.rb:36:in `call'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:110:in `try_switch_to_lane'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/fast_file.rb:141:in `rescue in method_missing'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/fast_file.rb:136:in `method_missing'&#10;Fastfile:71:in `block (2 levels) in parsing_binding'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/lane.rb:36:in `call'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/lane.rb:36:in `call'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:52:in `block in execute'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:46:in `chdir'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/runner.rb:46:in `execute'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/lane_manager.rb:46:in `cruise_lane'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/lib/fastlane/command_line_handler.rb:30:in `handle'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/bin/fastlane:38:in `block (2 levels) in run'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/commander-4.3.5/lib/commander/command.rb:178:in `call'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/commander-4.3.5/lib/commander/command.rb:178:in `call'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/commander-4.3.5/lib/commander/command.rb:153:in `run'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/commander-4.3.5/lib/commander/runner.rb:428:in `run_active_command'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane_core-0.37.0/lib/fastlane_core/ui/fastlane_runner.rb:23:in `run!'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/commander-4.3.5/lib/commander/delegates.rb:15:in `run!'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/bin/fastlane:156:in `run'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2@global/gems/fastlane-1.64.0/bin/fastlane:162:in `&lt;top (required)&gt;'&#10;/Users/Gabe/.rvm/rubies/ruby-2.1.2/bin/fastlane:23:in `load'&#10;/Users/Gabe/.rvm/rubies/ruby-2.1.2/bin/fastlane:23:in `&lt;main&gt;'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'&#10;/Users/Gabe/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `&lt;main&gt;'&#10;&#10;Exit status of command './Crashlytics.framework/submit 2b0e59ad86a3bc7aa61e7444e593e13a0c2e92ec 05391c883d210a6192135a527a696c5c7fe1b4a92c01af5f531555c286c0afba -ipaPath './Kabbalah.ipa' -notesPath '/var/folders/sc/0ptgt_j54p5c32w6bcftymbr0000gn/T/changelog20160301-19825-1h4cl57' -groupAliases 'bb-test' -notifications YES -debug NO' was 1 instead of 0.&#10;2016-03-01 23:05:03.984 submit Crashlytics: Crashlytics.framework/submit 1.3.5 (17)&#10;2016-03-01 23:05:07.433 submit Crashlytics: Added Release Notes Successfully 200&#10;2016-03-01 23:05:07.715 submit Crashlytics: Unable to add testers: Could not find a group for one or more of: [&quot;bb-test&quot;]&#10;2016-03-01 23:05:07.715 submit Crashlytics: Failed to add testers/groups to the release&#10;" />
+      <testcase classname="fastlane.lanes" name="11: crashlytics" time="45.336964">
         
       </testcase>
     
