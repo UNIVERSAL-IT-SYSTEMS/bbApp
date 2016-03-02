@@ -67,7 +67,7 @@ desc "Submits a new Beta Build to Apple TestFlight"
     cocoapods
     match(app_identifier: "com.bneibaruch.Kabbalah", type: "appstore")
     gym(scheme: "Kabbalah", workspace: "Kabbalah.xcworkspace", clean: true)
-    fabric(scheme: "Testing")
+    fabric(scheme: "Kabbalah")
   end
 
 
@@ -90,11 +90,6 @@ desc "Deploys a new version to the App Store"
       development: true
     )
 
-    build(
-      scheme: scheme, 
-      signId: ENV['SIGNING_IDENTITY_DEV']
-    )
-
     environment = scheme.upcase
 
     crashlytics(
@@ -104,23 +99,6 @@ desc "Deploys a new version to the App Store"
     )
 
     # post_to_slack(scheme: scheme, destination: "Crashlytics")
-  end
-
-    private_lane :build do |options|
-    scheme = options[:scheme]
-    signingId = options[:signId]
-
-    gym(
-      scheme: "Kabbalah #{scheme}", 
-      configuration: scheme, 
-      clean: true, 
-      include_bitcode: false,
-      workspace: "Kabbalah.xcworkspace",
-      output_directory: "../",
-      output_name: "Kabbalah.ipa",
-      codesigning_identity: "#{signingId}",
-      xcargs: "ARCHIVE=YES" # Used to tell the Fabric run script to upload dSYM file
-    )
   end
 
   after_all do |lane|
