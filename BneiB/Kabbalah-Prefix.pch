@@ -9,26 +9,25 @@
 #endif
 
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
-    #import "Appirater.h"
-    #import "Twitter/Twitter.h"
-    #import "Reachability.h"
-    #import "MessageUI/MFMailComposeViewController.h"
-    #import "TestFlight.h"
-    #import "Bnei_BaruchAppDelegate.h"
-    #import "BlockAlertView.h"
-    #import "BlockBackground.h"
-    #import "BlockUI.h"
-    #import <Parse/Parse.h>
-    #import <QuartzCore/QuartzCore.h>
-    #import <Social/Social.h>
-    #import <FacebookSDK/FacebookSDK.h>
-    #import "MBProgressHUD.h"
-    #import "BBDefines.h"
-    #import <Accounts/Accounts.h>
-    #import "LocalyticsSession.h"
-    #import "LocalyticsUtilities.h"
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "Appirater.h"
+#import "Reachability.h"
+#import "Bnei_BaruchAppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
+#import "MBProgressHUD.h"
+#import "LocalyticsUtilities.h"
+#import "Localytics.h"
+#import "UIColor+kabIOSAdditions.h"
+#import "GMDPTR.h"
+#import "UIButton+kabiOSAdditions.h"
+#import "UIColor+kabIOSAdditions.h"
+#import "UIFont+kabiOSAdditions.h"
+#import "AFNetworking.h"
+#import <MessageUI/MessageUI.h>
+
+#define IS_OS_9_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
+#define IS_OS_LESS_THAN_8   ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0)
 
 
 #endif

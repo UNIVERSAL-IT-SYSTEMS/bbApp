@@ -11,10 +11,10 @@
 #endif
 
 #if ANALYTICS_ENABLED
-#import "LocalyticsSession.h"
+#import "Localytics.h"
+
 #endif
 
-void LLStartSession(NSString *key);
 void LLTagEvent(NSString *name);
 void LLTagEventWithAttributes(NSString *name, NSDictionary *attributes);
 void LLTagScreen(NSString *name);

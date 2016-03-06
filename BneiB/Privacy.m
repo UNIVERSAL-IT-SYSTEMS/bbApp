@@ -41,7 +41,6 @@
                                            userInfo:Nil
                                             repeats:YES];
     
-    [TestFlight passCheckpoint:@"EC Privacy load"];
     
     internetReach = [Reachability reachabilityForInternetConnection];
     [internetReach startNotifier];
@@ -59,10 +58,10 @@
         }
         case NotReachable:
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
-            
-            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-            [alert show];
+            //            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
+            //            
+            //            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+            //            [alert show];
             break;
         }
             
@@ -74,7 +73,7 @@
      [webView loadRequest:requestObj];*/
     
     ///////Local Web View///////
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"privacy" ofType:@"html" inDirectory:NO]]]];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"privacy" ofType:@"html"]]]];
     
 }
 
@@ -101,9 +100,9 @@
 
 - (void) reachabilityChanged: (NSNotification* )note
 {
-	Reachability* curReach = [note object];
-	NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
-	
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
+    
     NetworkStatus netStatus = [curReach currentReachabilityStatus];
     switch (netStatus)
     {
@@ -117,10 +116,10 @@
         }
         case NotReachable:
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
-            
-            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-            [alert show];
+            //            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
+            //            
+            //            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+            //            [alert show];
             break;
         }
     }
@@ -145,14 +144,12 @@
             [composer setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
             [self presentViewController:composer animated:YES completion:nil];
         }
-        [TestFlight passCheckpoint:@"Email Priacy Policy"];
     }
     
     if (buttonIndex == 1) {
         NSURL * currentURL = [webView.request URL];
         [[UIApplication sharedApplication] openURL:currentURL];
         
-        [TestFlight passCheckpoint:@"Open in Safari. Privacy Policy"];
     }
     
 }
@@ -162,10 +159,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
     if (result == MFMailComposeResultFailed) {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"Unable to send email"];
-        
-        [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-        [alert show];
+        //        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"Unable to send email"];
+        //        
+        //        [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+        //        [alert show];
     }
     
 }

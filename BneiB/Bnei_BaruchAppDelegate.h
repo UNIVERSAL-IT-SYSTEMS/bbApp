@@ -7,34 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TestFlight.h"
-//#import <FacebookSDK/FacebookSDK.h>
-#import "LocalyticsSession.h"
 #import "LocalyticsUtilities.h"
 
-@interface Bnei_BaruchAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, UITabBarDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
+@interface Bnei_BaruchAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, UITabBarDelegate>
 {
-   UIBackgroundTaskIdentifier bgTask; 
+    UIBackgroundTaskIdentifier bgTask; 
 }
 
-
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) UITabBarController *tabBarController;
 
-//+ (Bnei_BaruchAppDelegate *)sharedAppDelegate;
++ (Bnei_BaruchAppDelegate *)sharedDelegate;
 
--(void)customizeiPadTheme;
-
--(void)customizeiPhoneTheme;
-
--(void)iPadInit;
-
-
-//@property (strong, nonatomic) FBSession *session;
-
-//extern NSString *const FBSessionStateChangedNotification;
-
-//- (void) openSessionCheckCache:(BOOL)check;
-
-//- (void) closeSession;
 
 @end

@@ -24,113 +24,85 @@ platform :ios do
   before_all do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
 
+    ensure_git_status_clean
     cocoapods
+    increment_build_number
+    match(git_url: "git@github.com:gabemdev/bbApp.git")
   end
 
-  desc "Responsible for building and signing the app"
-  private_lane :build_app do |options|
-    #Download the provisioning profile for the app
-    sigh(output_path: "./fastlane/profiles") #Dist profile
-
-    #Download the provisioning profile
-    sigh(
-    output_path: "./fastlane/profiles",
-    app_identifier: "com.bneibaruch.Kabbalah"
-    )
-
-    increment_build_number #version bump
-
-    gym (
-    workspace: "Kabbalah.xcworkspace",
-    scheme: "Release"
+desc "Installs FixCode which disables the \"Fix Issue\" button in Xcode"
+  lane :xcode do
+    install_xcode_plugin(
+      url: "https://github.com/fastlane/FixCode/releases/download/0.2.0/FixCode.xcplugin.zip"
     )
   end
 
-  desc "Runs all the tests"
-  lane :test do
-    scan
+desc "Fetches the provisioning profiles so you can build locally and deploy to your device"
+  lane :certs do
+    match(app_identifier: "com.bneibaruch.Kabbalah", type: "development")
+    match(app_identifier: "com.bneibaruch.Kabbalah", type: "appstore")
+    match(app_identifier: "com.bneibaruch.Kabbalah", type: "appstore")
   end
 
-  desc "Submit a new Beta Build to Apple TestFlight"
-  desc "This will also make sure the profile is up to date"
-  desc "This action will also do a build version bump and push it to git."
-  lane :beta do
-    build_app
-
-    deliver(
-    skip_deploy: true,
-    beta: true
-    )
-
-    commit_version_bump(
-    message: 'Build version Bump by fastlane',
-    force: true
-    )
-    build_number = Actions.lane_context[Actions::SharedValues::BUILD_NUMBER]
-    add_git_tag(tag: "testflight-#{build_number}")
-
-    push_to_git_remote
-    # match(type: "appstore") # more information: https://codesigning.guide
-    # gym # Build your app - more options available
-    # pilot
-
-    # sh "your_script.sh"
-    # You can also use other beta testing services here (run `fastlane actions`)
-  end
-
-  desc "Deploy a new version to the App Store"
-  lane :appstore do
-    # match(type: "appstore")
+desc "Creates new screenshots and uploads them to iTunes Connect"
+  lane :screens do
+    cocoapods
+    match(app_identifier: "com.bneibaruch.Kabbalah", type: "development")
     snapshot
-
-    build_app
-
-    deliver(
-    skip_deploy: true,
-    force: true
-    )
-
-    commit_version_bump(
-    message: 'Version Bump by fastlane',
-    force: true
-    )
-
-    build_number = Actions.lane_context[Actions::SharedValues::BUILD_NUMBER]
-    add_git_tag(tag: "appstore-#{build_number}")
-
-    push_to_git_remote
-    # gym # Build your app - more options available
-    # deliver(force: true)
-    # frameit
+    frameit
+    deliver(app: 550938690, app_identifier: "com.bneibaruch.Kabbalah", skip_metadata: true, force: true)
   end
 
-  # You can define as many lanes as you want
+desc "Submits a new Beta Build to Apple TestFlight"
+  lane :beta do
+    cocoapods
+    match(app_identifier: "com.bneibaruch.Kabbalah", type: "appstore")
+    gym(scheme: "Kabbalah", workspace: "Kabbalah.xcworkspace", clean: true)
+    pilot(username: "gabomorales@me.com", app_identifier: "com.bneibaruch.Kabbalah")
+    # clean_build_artifacts
+    fabric(scheme: "Testing")
+  end
+
+  desc "Submits a new Beta build to Fabric"
+  lane :Fabric do
+    cocoapods
+    match(app_identifier: "com.bneibaruch.Kabbalah", type: "appstore")
+    gym(scheme: "Kabbalah", workspace: "Kabbalah.xcworkspace", clean: true)
+    fabric(scheme: "Kabbalah")
+  end
+
+
+desc "Deploys a new version to the App Store"
+  lane :deploy do
+    cocoapods
+    snapshot
+    match(app_identifier: "com.bneibaruch.Kabbalah", type: "appstore")
+    gym(scheme: "Kabbalah", workspace: "Kabbalah.xcworkspace", configuration: "Release", clean: true)
+    deliver(force: true)
+  end
+
+    #------------------------- Crashlytics -------------------------#
+
+  private_lane :fabric do |options|
+    scheme = options[:scheme]
+
+    sigh(
+      skip_install: true,
+      development: true
+    )
+
+    environment = scheme.upcase
+
+    crashlytics(
+      ipa_path: "./Kabbalah.ipa",
+      notes: "Running on #{environment}"
+    )
+
+    # post_to_slack(scheme: scheme, destination: "Crashlytics")
+  end
 
   after_all do |lane|
     # This block is called, only if the executed lane was successful
-    slack (
-    message: "fastlane was successful :rocket:",
-    success: true,
-    default_payloads: [:lane, :git_branch, :git_author]
-    )
-
-    clean_build_artifacts(
-    execute_pattern: ".*\.mobileprovision" #don't clear provisioning profiles
-    )
-    # slack(
-    #   message: "Successfully deployed new App Update."
-    # )
-  end
-
-  error do |lane, exception|
-    slack(
-      message: exception.message,
-      success: false
-    )
   end
 end
 
-
-
-# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/docs/Platforms.md
-# All available actions: https://github.com/fastlane/fastlane/blob/master/docs/Actions.md

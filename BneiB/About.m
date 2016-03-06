@@ -42,7 +42,6 @@
                                            userInfo:Nil
                                             repeats:YES];
     
-    [TestFlight passCheckpoint:@"EC About load"];
     
     internetReach = [Reachability reachabilityForInternetConnection];
     [internetReach startNotifier];
@@ -60,22 +59,22 @@
         }
         case NotReachable:
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
-            
-            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-            [alert show];
+            //            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
+            //            
+            //            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+            //            [alert show];
             break;
         }
             
     }
     
     /*NSString *fullURL = @"http://edu.kabbalah.info/register-free";
-    NSURL *url = [NSURL URLWithString:fullURL];
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    [webView loadRequest:requestObj];*/
+     NSURL *url = [NSURL URLWithString:fullURL];
+     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+     [webView loadRequest:requestObj];*/
     
     ///////Local Web View///////
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"about" ofType:@"html" inDirectory:NO]]]];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"about" ofType:@"html"]]]];
     
 }
 
@@ -101,9 +100,9 @@
 
 - (void) reachabilityChanged: (NSNotification* )note
 {
-	Reachability* curReach = [note object];
-	NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
-	
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
+    
     NetworkStatus netStatus = [curReach currentReachabilityStatus];
     switch (netStatus)
     {
@@ -117,10 +116,10 @@
         }
         case NotReachable:
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
-            
-            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-            [alert show];
+            //            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"No 3G/WiFi detected. Some functionality will be limited until a connection is made."];
+            //            
+            //            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+            //            [alert show];
             break;
         }
     }
@@ -134,33 +133,32 @@
 
 - (void)actionSheet: (UIActionSheet *) actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
-        NSString *message = [NSString stringWithFormat:@"About Bnei Baruch. @KabbalahApp"];
-        NSString *urlString = [NSString stringWithFormat:@"http://goo.gl/Zwniu"];
+        //        NSString *message = [NSString stringWithFormat:@"About Bnei Baruch. @KabbalahApp"];
+        //        NSString *urlString = [NSString stringWithFormat:@"http://goo.gl/Zwniu"];
+        //        
+        //        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+        //        {
+        //            SLComposeViewController *tweetSheet = [SLComposeViewController
+        //                                                   composeViewControllerForServiceType:SLServiceTypeTwitter];
+        //            [tweetSheet setInitialText:message];
+        //            
+        //            [tweetSheet addURL:[NSURL URLWithString:urlString]];
+        //            [self presentViewController:tweetSheet animated:YES completion:nil];
+        //        }
+        //        /*
+        //         TWTweetComposeViewController *tweetSheet =
+        //         [[TWTweetComposeViewController alloc] init];
+        //         
+        //         [tweetSheet setInitialText:@"About Bnei Baruch. @KabbalahApp"];
+        //         [tweetSheet addURL:[NSURL URLWithString:@"http://goo.gl/Zwniu"]];
+        //         
+        //         
+        //         tweetSheet.completionHandler = ^(TWTweetComposeViewControllerResult result){
+        //         [self dismissModalViewControllerAnimated:YES];
+        //         };
+        //         
+        //         [self presentModalViewController:tweetSheet animated:YES];*/
         
-        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
-        {
-            SLComposeViewController *tweetSheet = [SLComposeViewController
-                                                   composeViewControllerForServiceType:SLServiceTypeTwitter];
-            [tweetSheet setInitialText:message];
-            
-            [tweetSheet addURL:[NSURL URLWithString:urlString]];
-            [self presentViewController:tweetSheet animated:YES completion:nil];
-        }
-        /*
-        TWTweetComposeViewController *tweetSheet =
-        [[TWTweetComposeViewController alloc] init];
-        
-        [tweetSheet setInitialText:@"About Bnei Baruch. @KabbalahApp"];
-        [tweetSheet addURL:[NSURL URLWithString:@"http://goo.gl/Zwniu"]];
-        
-        
-        tweetSheet.completionHandler = ^(TWTweetComposeViewControllerResult result){
-            [self dismissModalViewControllerAnimated:YES];
-        };
-        
-	    [self presentModalViewController:tweetSheet animated:YES];*/
-        
-        [TestFlight passCheckpoint:@"Twitter About"];
     }
     
     if (buttonIndex == 1) {
@@ -175,22 +173,13 @@
             //[self presentModalViewController:composer animated:YES];
             [self presentViewController:composer animated:YES completion:nil];
         }
-        [TestFlight passCheckpoint:@"Email EC Register"];
     }
     
     if (buttonIndex == 2) {
         
-        [FBSession activeSession];
         NSString *message = [NSString stringWithFormat:@"About Bnei Baruch \n'%@' \nVia Kabbalah App",[NSURL URLWithString:@"http://goo.gl/Zwniu"]];
         
-        [FBRequestConnection startForPostStatusUpdate:message
-                                    completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                                        
-                                        [self showAlert:message result:result error:error];
-                                        
-                                    }];
         
-        [TestFlight passCheckpoint:@"Facebook Bookstore"];
         
     }
     
@@ -198,7 +187,6 @@
         NSURL * currentURL = [webView.request URL];
         [[UIApplication sharedApplication] openURL:currentURL];
         
-        [TestFlight passCheckpoint:@"Open in Safari. EC Register"];
     }
     
 }
@@ -209,10 +197,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
     if (result == MFMailComposeResultFailed) {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"Unable to send email"];
-        
-        [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-        [alert show];
+        //        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Alert" message:@"Unable to send email"];
+        //        
+        //        [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+        //        [alert show];
     }
     
 }
@@ -232,10 +220,10 @@
         alertTitle = @"Success";
     }
     
-    BlockAlertView *alert = [BlockAlertView alertWithTitle:alertTitle message:alertMsg];
-    
-    [alert setDestructiveButtonWithTitle:@"OK" block:nil];
-    [alert show];
+    //    BlockAlertView *alert = [BlockAlertView alertWithTitle:alertTitle message:alertMsg];
+    //    
+    //    [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+    //    [alert show];
 }
 
 
