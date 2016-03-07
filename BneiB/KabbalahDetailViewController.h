@@ -10,11 +10,10 @@
 #import "FeedModel.h"
 
 
-@interface KabbalahDetailViewController : UIViewController<UITextFieldDelegate, UIActionSheetDelegate, UIScrollViewDelegate>
+@interface KabbalahDetailViewController : UIViewController
 
 @property (nonatomic) FeedModel *selected;
 
-- (void)openActionSheet:(id)sender;
 - (void)setDetailItem:(id)selectedItem;
 
 @end
