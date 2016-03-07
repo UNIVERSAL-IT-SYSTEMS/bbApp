@@ -12,29 +12,21 @@
 #import "UIButton+kabiOSAdditions.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "KabbalahTVDetailViewController.h"
+#import "BBEmptyDataSetSource.h"
+#import "BBLoadingErrorEmptyDataSetSource.h"
 
-@interface KabbalahDetailViewController () <UITextViewDelegate>
-@property (nonatomic) UIScrollView *scrollView;
+@interface KabbalahDetailViewController () <UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetDelegate>
 @property (nonatomic) UIImageView *mainTitle;
-@property (nonatomic) UIImageView *textBackground;
 @property (nonatomic) UITextView *detailText;
+@property (nonatomic) UILabel *titleLabel;
 @property (nonatomic) UIButton *viewButton;
+@property (nonatomic) UITableView *table;
+@property (nonatomic) CGFloat kTableheaderHeight;
 @property (nonatomic) NSLayoutConstraint *detailTextHeightConstraint;
 
 @end
 
 @implementation KabbalahDetailViewController
-
-- (UIScrollView *)scrollView {
-    if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] init];
-        _scrollView.translatesAutoresizingMaskIntoConstraints = NO;
-        _scrollView.showsHorizontalScrollIndicator = NO;
-        _scrollView.showsVerticalScrollIndicator = NO;
-        _scrollView.alwaysBounceVertical = YES;
-    }
-    return _scrollView;
-}
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -46,24 +38,23 @@
 - (void)setDetailItem:(id)selectedItem {
     if (_selected != selectedItem) {
         _selected = selectedItem;
-        [self loadUIViews];
+        [self loadTableView];
+        [self loadConstraints];
     }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.kTableheaderHeight = 250.0;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    [self.navigationController.navigationBar setTranslucent:NO];
-    [self.view addSubview:self.scrollView];
-    [self loadUIViews];
+    [self.navigationItem setTitle:[NSString stringWithFormat:@"%@", _selected.title]];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
                                    initWithTitle:@" "
                                    style:UIBarButtonItemStylePlain
                                    target:nil
                                    action:nil];
     self.navigationItem.backBarButtonItem=backButton;
-    
+    // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -75,89 +66,125 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Setup
 
-
-- (void)loadUIViews {
-    //Main View
-    self.title = self.selected.title;
-    self.navigationItem.backBarButtonItem.title = @" ";
-    
-    
-    [_scrollView setBackgroundColor:[UIColor kabStaticColor]];
-    
-    _mainTitle = [[UIImageView alloc] init];
-    _mainTitle.translatesAutoresizingMaskIntoConstraints = NO;
-    _mainTitle.contentMode = UIViewContentModeScaleAspectFill;
-    [_mainTitle setImageWithURL:self.selected.backgroundURL placeholderImage:[UIImage imageNamed:@"bg_profile_empty"]];
-    [self.scrollView addSubview:_mainTitle];
-    
-    _detailText = [[UITextView alloc] init];
-    _detailText.translatesAutoresizingMaskIntoConstraints = NO;
-    _detailText.backgroundColor = [UIColor clearColor];
-    _detailText.textColor = [UIColor kabBlueColor];
-    _detailText.font = [UIFont kabInterfaceFontOfSize:UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 26.0 : 16.0];
-    _detailText.textAlignment = NSTextAlignmentLeft;
-    _detailText.autocapitalizationType = UITextAutocapitalizationTypeSentences;
-    _detailText.autocorrectionType = UITextAutocorrectionTypeNo;
-    _detailText.editable = NO;
-    _detailText.scrollsToTop = YES;
-    [_detailText setScrollEnabled:NO];
-    [self.scrollView addSubview:_detailText];
-    
-    _viewButton = [[UIButton alloc] init];
-    _viewButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [_viewButton setTitle:@"View More" forState:UIControlStateNormal];
-    [_viewButton.titleLabel setFont:[UIFont boldKabInterfaceFontOfSize:20]];
-    [_viewButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_viewButton setTitleColor:[UIColor kabLightTextColor] forState:UIControlStateSelected];
-    [_viewButton setBackgroundColor:[UIColor kabBlueColor]];
-    [_viewButton addTarget:self action:@selector(pressedView:) forControlEvents:UIControlEventTouchUpInside];
-    [self.scrollView addSubview:_viewButton];
-    
-    [_detailText setText:self.selected.detailDescription];
-    CGRect rect = _detailText.frame;
-    rect.size.height = _detailText.contentSize.height;
-    self.detailTextHeightConstraint.constant = rect.size.height;
-    
-    NSDictionary *views = NSDictionaryOfVariableBindings(_mainTitle, _scrollView, _detailText);
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_scrollView]-0-|" options:kNilOptions metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_scrollView]-0-|" options:kNilOptions metrics:nil views:views]];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_mainTitle
-                                                                attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual
-                                                                   toItem:self.scrollView attribute:NSLayoutAttributeWidth
-                                                               multiplier:1.0 constant:0.0]];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_mainTitle
-                                                                attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual
-                                                                   toItem:self.scrollView attribute:NSLayoutAttributeWidth
-                                                               multiplier:3.0/4.0 constant:0]];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_detailText
-                                                                attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual
-                                                                   toItem:self.scrollView attribute:NSLayoutAttributeWidth
-                                                               multiplier:1.0 constant:0.0]];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_detailText
-                                                                attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual
-                                                                   toItem:_mainTitle attribute:NSLayoutAttributeBottom
-                                                               multiplier:1.0 constant:0]];
-    
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_viewButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_detailText attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10.0]];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_viewButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0.0]];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_viewButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_viewButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeHeight multiplier:0.0 constant:44]];
-    
-    CGFloat height = CGRectGetHeight(self.view.bounds) + _viewButton.bounds.size.height + _detailTextHeightConstraint.constant + 350;
-    NSLog(@"Height: %f", height);
-    [_scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), height)];
+#pragma mark - Tableview
+- (void)loadTableView {
+    _table = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _table.translatesAutoresizingMaskIntoConstraints = NO;
+    _table.backgroundColor = [UIColor kabStaticColor];
+    _table.delegate = self;
+    _table.dataSource = self;
+    _table.emptyDataSetDelegate = self;
+    _table.tableFooterView = [UIView new];
+    [_table registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    _table.scrollEnabled = YES;
+    [_table reloadData];
+    _table.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:_table];
 }
 
-- (void)pressedView:(id)sender {
-    KabbalahTVDetailViewController *detail = [[KabbalahTVDetailViewController alloc] init];
-    detail.detailSelected = self.selected;
-    [self.navigationController pushViewController:detail animated:YES];
-    self.navigationItem.backBarButtonItem.title = @" ";
+- (void)loadConstraints {
+    NSDictionary *views = NSDictionaryOfVariableBindings(_table);
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_table]|" options:kNilOptions metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_table]|" options:kNilOptions metrics:nil views:views]];
 }
 
-- (void)openActionSheet:(id)sender {
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
+{
+    return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     
+    [self configureCell:cell forRowAtIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (void)configureCell:(UITableViewCell *)cell
+    forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.textLabel.numberOfLines = 0;
+    cell.backgroundColor = [UIColor kabStaticColor];
+    switch (indexPath.row) {
+        case 0: {
+            UIView *contentView = [[UIView alloc] init];
+            contentView.translatesAutoresizingMaskIntoConstraints = NO;
+            [cell.contentView addSubview:contentView];
+            
+            UIImageView *bookImage = [[UIImageView alloc] init];
+            bookImage.translatesAutoresizingMaskIntoConstraints = NO;
+            [bookImage setContentMode:UIViewContentModeScaleAspectFill];
+            [bookImage setImageWithURL:_selected.detailBackgroundURL placeholderImage:[UIImage imageNamed:@"bg_profile_empty"]];
+            [contentView addSubview:bookImage];
+            
+            NSDictionary *views = NSDictionaryOfVariableBindings(contentView, bookImage);
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[contentView]|" options:kNilOptions metrics:nil views:views]];
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[contentView]|" options:kNilOptions metrics:nil views:views]];
+            
+            [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[bookImage]|" options:kNilOptions metrics:nil views:views]];
+            [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[bookImage(==200)]-0-|" options:kNilOptions metrics:nil views:views]];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            break;
+        }
+        case 1: {
+            //            cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+            cell.textLabel.font = [UIFont kabInterfaceFontOfSize:16];
+            cell.textLabel.textColor = [UIColor kabLightTextColor];
+            cell.textLabel.text = _selected.detailDescription;
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            break;
+        }
+        case 2: {
+            cell.textLabel.font = IS_OS_9_OR_LATER ? [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3] : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+            cell.backgroundColor = [UIColor kabBlueColor];
+            cell.textLabel.textColor = [UIColor whiteColor];
+            [cell.textLabel setText:@"View".uppercaseString];
+            [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 120 : UITableViewAutomaticDimension;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 120 : 100;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    switch (indexPath.row) {
+        case 2: {
+            KabbalahTVDetailViewController *detail = [[KabbalahTVDetailViewController alloc] init];
+            detail.detailSelected = self.selected;
+            [self.navigationController pushViewController:detail animated:YES];
+            self.navigationItem.backBarButtonItem.title = @" ";
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 @end

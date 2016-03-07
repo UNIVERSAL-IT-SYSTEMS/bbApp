@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "forward-button.png",
+      "filename" : "action-button-mini.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "forward-button@2x.png",
+      "filename" : "action-button-mini@2x.png",
       "scale" : "2x"
     },
     {
